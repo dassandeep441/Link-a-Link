@@ -1,0 +1,617 @@
+<!DOCTYPE html><html lang="en" data-theme="dark"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>Trust Centre — Link-a-Link</title><style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Sora:wght@300;400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500&display=swap');
+
+:root{
+  --nv:#0f2044;--nv-d:#0a1733;
+  --g:#c9a84c;--gl:#dbb960;--gd:#a68a3a;
+  --gg:rgba(201,168,76,.12);--ggb:rgba(201,168,76,.3);--ggh:rgba(201,168,76,.18);
+  --bl:#60a5fa;--em:#34d399;--rs:#f87171;
+  --r:8px;--r2:12px;--r3:16px;
+  --serif:'DM Serif Display',Georgia,serif;
+  --sans:'Sora',-apple-system,BlinkMacSystemFont,sans-serif;
+  --mono:'IBM Plex Mono',monospace;
+  --shadow-sm:0 2px 8px rgba(0,0,0,.08);
+  --shadow:0 8px 32px rgba(0,0,0,.12);
+  --shadow-lg:0 16px 48px rgba(0,0,0,.18);
+  --trans:.25s cubic-bezier(.4,0,.2,1);
+}
+
+/* DARK THEME (default) */
+:root, [data-theme="dark"]{
+  --bg:#14213d;
+  --bg2:#1c2e52;
+  --bg3:#26396b;
+  --line:rgba(255,255,255,.08);
+  --line2:rgba(255,255,255,.13);
+  --line-h:rgba(201,168,76,.25);
+  --t:#ededed;
+  --t2:rgba(220,220,220,.78);
+  --t3:rgba(200,200,200,.55);
+  --t4:rgba(200,200,200,.35);
+  --code-bg:rgba(0,0,0,.25);
+  --pre-bg:#0a1733;
+  --pill-bg:rgba(255,255,255,.05);
+}
+
+/* LIGHT THEME */
+[data-theme="light"]{
+  --bg:#faf8f3;
+  --bg2:#ffffff;
+  --bg3:#f1ecdf;
+  --line:rgba(15,32,68,.1);
+  --line2:rgba(15,32,68,.15);
+  --line-h:rgba(201,168,76,.4);
+  --t:#0f2044;
+  --t2:#3d4a6b;
+  --t3:#6b7280;
+  --t4:#9ca3af;
+  --code-bg:rgba(15,32,68,.05);
+  --pre-bg:#0f2044;
+  --pill-bg:rgba(15,32,68,.04);
+  --shadow-sm:0 2px 8px rgba(15,32,68,.05);
+  --shadow:0 8px 32px rgba(15,32,68,.08);
+  --shadow-lg:0 16px 48px rgba(15,32,68,.12);
+}
+
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:64px}
+body{font-family:var(--sans);color:var(--t2);background:var(--bg);-webkit-font-smoothing:antialiased;line-height:1.65;overflow-x:hidden;transition:background .3s,color .3s}
+::selection{background:var(--g);color:var(--nv)}
+img{max-width:100%;display:block;height:auto}
+a{color:var(--g);text-decoration:none}a:hover{color:var(--gl)}
+
+/* ═══ NAV ═══ */
+.nv{position:fixed;top:0;left:0;right:0;z-index:200;height:60px;background:var(--nv);border-bottom:1px solid rgba(255,255,255,.06);box-shadow:0 1px 0 var(--gg)}
+.nv-w{max-width:1180px;margin:0 auto;padding:0 24px;display:flex;align-items:center;height:100%;gap:8px}
+.nv-l{display:flex;align-items:center;gap:10px;text-decoration:none;margin-right:auto}
+.nv-l img{height:24px}
+.nv-l b{font-size:16px;color:#fff;font-weight:700;letter-spacing:-.3px}
+.nv-n{display:flex;gap:2px;align-items:center}
+.nv-n a{color:rgba(255,255,255,.65);font-size:13px;font-weight:500;padding:7px 14px;border-radius:6px;transition:.15s;text-decoration:none}
+.nv-n a:hover,.nv-n a.on{color:#fff;background:rgba(255,255,255,.08)}
+.nv-r{display:flex;align-items:center;gap:8px;margin-left:14px}
+.nv-tt{width:34px;height:34px;border-radius:8px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);color:#fff;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:.2s}
+.nv-tt:hover{background:rgba(201,168,76,.2);border-color:var(--g)}
+.nv-tt svg{width:15px;height:15px}
+.nv-tt .moon{display:block}.nv-tt .sun{display:none}
+[data-theme="light"] .nv-tt .moon{display:none}[data-theme="light"] .nv-tt .sun{display:block}
+.nv-c{font-size:12px;font-weight:600;color:var(--nv);background:linear-gradient(135deg,var(--g),var(--gd));padding:8px 16px;border-radius:6px;text-decoration:none;transition:.2s;letter-spacing:.2px;box-shadow:0 2px 12px rgba(201,168,76,.3)}
+.nv-c:hover{transform:translateY(-1px);box-shadow:0 4px 20px rgba(201,168,76,.5);color:var(--nv)}
+.nv-mb{display:none;width:36px;height:36px;background:transparent;border:none;color:#fff;cursor:pointer;align-items:center;justify-content:center;border-radius:6px;transition:.2s}
+.nv-mb:hover{background:rgba(255,255,255,.08)}
+.nv-mb svg{width:20px;height:20px}
+
+/* MOBILE DRAWER */
+.nv-bk{position:fixed;inset:0;background:rgba(0,0,0,.6);z-index:198;opacity:0;pointer-events:none;transition:.3s;backdrop-filter:blur(4px)}
+.nv-bk.on{opacity:1;pointer-events:auto}
+.nv-dr{position:fixed;top:0;right:0;bottom:0;width:280px;max-width:85vw;background:var(--nv);z-index:199;padding:80px 20px 24px;transform:translateX(100%);transition:transform .35s cubic-bezier(.4,0,.2,1);box-shadow:-8px 0 32px rgba(0,0,0,.3);overflow-y:auto}
+.nv-dr.on{transform:translateX(0)}
+.nv-dr-x{position:absolute;top:18px;right:18px;width:36px;height:36px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.1);color:#fff;border-radius:8px;cursor:pointer;display:flex;align-items:center;justify-content:center}
+.nv-dr-x svg{width:18px;height:18px}
+.nv-dr a{display:block;padding:13px 14px;font-size:15px;font-weight:500;color:rgba(255,255,255,.8);border-radius:8px;text-decoration:none;margin-bottom:2px;transition:.15s}
+.nv-dr a:hover,.nv-dr a.on{color:#fff;background:rgba(255,255,255,.08)}
+.nv-dr-cta{display:block;margin-top:14px;padding:13px 16px;text-align:center;font-size:14px;font-weight:700;color:var(--nv)!important;background:linear-gradient(135deg,var(--g),var(--gd));border-radius:8px}
+.nv-dr-tt{display:flex;align-items:center;justify-content:space-between;padding:14px 14px;margin-top:14px;border-top:1px solid rgba(255,255,255,.08);color:rgba(255,255,255,.7);font-size:13px;font-weight:500}
+.nv-dr-tt button{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12);color:#fff;width:60px;height:30px;border-radius:30px;cursor:pointer;position:relative;padding:0}
+.nv-dr-tt button::before{content:'';position:absolute;top:3px;left:3px;width:22px;height:22px;background:var(--g);border-radius:50%;transition:.3s}
+[data-theme="light"] .nv-dr-tt button::before{transform:translateX(30px)}
+
+/* ═══ FOOTER ═══ */
+.ft{background:var(--nv);padding:40px 24px 28px;color:rgba(255,255,255,.7)}
+.ft-w{max-width:1180px;margin:0 auto}
+.ft-top{display:flex;justify-content:space-between;flex-wrap:wrap;gap:32px;padding-bottom:28px;border-bottom:1px solid rgba(255,255,255,.08)}
+.ft-l{display:flex;align-items:center;gap:10px;text-decoration:none;margin-bottom:10px}
+.ft-l img{height:24px}
+.ft-l b{font-size:16px;color:#fff;font-weight:700;letter-spacing:-.3px}
+.ft-tag{font-size:12px;color:rgba(255,255,255,.5);max-width:280px;line-height:1.6;font-style:italic;font-family:var(--serif)}
+.ft-cols{display:flex;gap:48px;flex-wrap:wrap}
+.ft-col h4{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:var(--g);margin-bottom:12px}
+.ft-col a{display:block;font-size:13px;color:rgba(255,255,255,.6);padding:4px 0;text-decoration:none;transition:.15s}
+.ft-col a:hover{color:var(--g)}
+.ft-bot{padding-top:20px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
+.ft-c{font-size:11px;color:rgba(255,255,255,.4)}
+.ft-c em{font-style:normal;color:var(--g)}
+
+/* ═══ LAYOUT ═══ */
+.mx{max-width:1180px;margin:0 auto;padding:0 24px}
+.sec{padding:88px 0}
+.gline{height:1px;background:linear-gradient(90deg,transparent,var(--ggb),transparent);max-width:1180px;margin:0 auto}
+
+/* ═══ TYPOGRAPHY ═══ */
+.tag{display:inline-flex;align-items:center;gap:10px;font-size:10.5px;font-weight:600;letter-spacing:2.5px;text-transform:uppercase;margin-bottom:14px;color:var(--g)}
+.tag::before{content:'';width:24px;height:1px;background:var(--g)}
+.h2{font-family:var(--serif);font-size:38px;font-weight:400;letter-spacing:-.6px;line-height:1.15;color:var(--t);margin-bottom:14px}
+.h2 em{font-style:italic;color:var(--g)}
+.h3{font-family:var(--serif);font-size:22px;color:var(--t);margin-bottom:8px}
+.lead{font-size:15.5px;color:var(--t2);line-height:1.75;max-width:560px}
+.tc{text-align:center}.tc .lead{margin:0 auto}
+
+/* ═══ BUTTONS ═══ */
+.bt{display:inline-flex;align-items:center;gap:8px;padding:12px 24px;border-radius:var(--r);font-size:13.5px;font-weight:600;text-decoration:none;cursor:pointer;border:none;font-family:var(--sans);transition:var(--trans);letter-spacing:.2px}
+.bt:hover{text-decoration:none;transform:translateY(-1px)}
+.bt svg{width:14px;height:14px}
+.bt-g{background:linear-gradient(135deg,var(--g),var(--gd));color:var(--nv);box-shadow:0 4px 16px rgba(201,168,76,.25)}
+.bt-g:hover{box-shadow:0 8px 28px rgba(201,168,76,.4);color:var(--nv)}
+.bt-o{background:transparent;color:var(--t);border:1px solid var(--line2)}
+.bt-o:hover{border-color:var(--g);color:var(--g)}
+
+/* ═══ CARDS ═══ */
+.cd{background:var(--bg2);border:1px solid var(--line);border-radius:var(--r3);transition:var(--trans);box-shadow:var(--shadow-sm)}
+.cd:hover{border-color:var(--line-h);box-shadow:var(--shadow);transform:translateY(-2px)}
+
+/* ═══ SCREENSHOTS ═══ */
+.sh{border-radius:var(--r2);overflow:hidden;border:1px solid var(--line2);box-shadow:var(--shadow)}
+.sh img{width:100%;display:block}
+.sh-c{padding:9px 14px;background:var(--bg2);border-top:1px solid var(--line);font-size:11px;color:var(--t3);font-weight:500}
+
+/* ═══ MOBILE ═══ */
+@media(max-width:900px){
+  .nv-n,.nv-r .nv-c{display:none}
+  .nv-mb{display:flex}
+  .nv-r{margin-left:0}
+  .sec{padding:56px 0}
+  .h2{font-size:28px}
+  .h3{font-size:18px}
+  .mx{padding:0 20px}
+}
+@media(max-width:600px){
+  .h2{font-size:24px}
+  .lead{font-size:14px}
+  .bt{padding:11px 20px;font-size:13px}
+  .tag{font-size:10px;letter-spacing:2px}
+  .ft-top{flex-direction:column;gap:24px}
+  .ft-cols{gap:32px;width:100%}
+}
+
+
+.dl{display:flex;padding-top:60px;min-height:100vh}
+.dt{width:270px;min-width:270px;position:sticky;top:60px;height:calc(100vh - 60px);background:var(--bg2);border-right:1px solid var(--line);overflow-y:auto;padding:24px 0 40px;flex-shrink:0}
+.dt::-webkit-scrollbar{width:4px}.dt::-webkit-scrollbar-thumb{background:var(--line2);border-radius:4px}
+.dt-bk{display:flex;align-items:center;gap:6px;padding:0 20px 14px;font-size:11px;font-weight:600;color:var(--t3);text-decoration:none;text-transform:uppercase;letter-spacing:.5px}
+.dt-bk:hover{color:var(--g);text-decoration:none}
+.dt-bk svg{width:12px;height:12px}
+.dt-h{padding:0 20px 14px;margin-bottom:10px;border-bottom:1px solid var(--line);font-family:var(--serif);font-size:18px;color:var(--t);display:flex;align-items:center;gap:8px}
+.dt-h span{font-size:20px}
+.dt-a{display:block;padding:7px 20px 7px 28px;font-size:13px;color:var(--t3);text-decoration:none;cursor:pointer;transition:.12s;border-left:2px solid transparent;line-height:1.45}
+.dt-a:hover{color:var(--t);background:var(--pill-bg);text-decoration:none}
+.dt-a.on{color:var(--g);font-weight:600;border-left-color:var(--g);background:var(--gg)}
+.dt-sep{height:1px;background:var(--line);margin:10px 20px}
+.dt-sub{padding:10px 20px 4px 28px;font-size:9.5px;font-weight:700;text-transform:uppercase;letter-spacing:1.3px;color:var(--t4)}
+.dm{flex:1;padding:36px 48px 64px;max-width:780px;min-width:0}
+.dm h1{font-family:var(--serif);font-size:32px;color:var(--t);margin-bottom:8px;letter-spacing:-.4px;line-height:1.15}
+.dm .ds{font-size:15px;color:var(--t2);margin-bottom:28px;line-height:1.7}
+.dm h2{font-family:var(--serif);font-size:20px;color:var(--g);margin:32px 0 10px;padding-bottom:8px;border-bottom:1px solid var(--line)}
+.dm h3{font-size:14px;font-weight:700;color:var(--t);margin:20px 0 8px}
+.dm p{font-size:14px;color:var(--t2);line-height:1.75;margin-bottom:12px}
+.dm ul,.dm ol{margin:0 0 14px 18px;font-size:14px;color:var(--t2);line-height:1.75}
+.dm li{margin-bottom:4px}
+.dm strong{color:var(--t)}
+.dm a{color:var(--g)}
+.dm .sh{margin:18px 0}
+.nt{border-radius:var(--r);padding:14px 18px;margin:14px 0;font-size:13px;line-height:1.7;color:var(--t2);background:var(--bg2);border:1px solid var(--line)}
+.nt-l{font-size:9.5px;font-weight:700;text-transform:uppercase;letter-spacing:.8px;margin-bottom:4px}
+.nt-i{border-left:3px solid var(--bl)}.nt-i .nt-l{color:var(--bl)}
+.nt-w{border-left:3px solid var(--g)}.nt-w .nt-l{color:var(--g)}
+.nt-s{border-left:3px solid var(--em)}.nt-s .nt-l{color:var(--em)}
+.nt-d{border-left:3px solid var(--rs)}.nt-d .nt-l{color:var(--rs)}
+code{font-family:var(--mono);font-size:12.5px;background:var(--code-bg);padding:2px 6px;border-radius:4px;color:var(--g)}
+pre{background:var(--pre-bg);border:1px solid var(--line);color:#c3cee0;padding:16px 18px;border-radius:var(--r);overflow-x:auto;margin:12px 0 18px;font-family:var(--mono);font-size:12px;line-height:1.65}
+pre code{background:none;padding:0;color:inherit}
+.tb2{width:100%;border-collapse:collapse;margin:12px 0 18px;font-size:13px;border:1px solid var(--line2);border-radius:var(--r);overflow:hidden}
+.tb2 th{text-align:left;padding:8px 12px;background:var(--bg3);font-weight:700;font-size:10px;text-transform:uppercase;letter-spacing:.5px;color:var(--g);border-bottom:1px solid var(--line2)}
+.tb2 td{padding:8px 12px;border-bottom:1px solid var(--line);color:var(--t2)}
+.tb2 tr:last-child td{border-bottom:none}
+.dm-mb{display:none;position:fixed;bottom:20px;right:20px;width:48px;height:48px;border-radius:50%;background:var(--g);color:var(--nv);border:none;cursor:pointer;align-items:center;justify-content:center;box-shadow:0 4px 16px rgba(0,0,0,.3);z-index:100}
+.dm-mb svg{width:20px;height:20px}
+@media(max-width:900px){
+  .dt{position:fixed;left:0;top:60px;bottom:0;transform:translateX(-100%);transition:transform .3s;z-index:150;width:280px}
+  .dt.on{transform:translateX(0)}
+  .dm{padding:24px 20px 80px;max-width:100%}
+  .dm h1{font-size:26px}
+  .dm-mb{display:flex}
+}
+
+.nv-dd{position:relative}
+.nv-dd>a{display:flex;align-items:center;gap:4px;cursor:pointer}
+.nv-dd>a svg{width:10px;height:10px;opacity:.55;transition:.2s}
+.nv-dd:hover>a svg{transform:rotate(180deg)}
+.nv-dm{position:absolute;top:calc(100% + 10px);left:-12px;min-width:240px;background:var(--bg2);border:1px solid var(--line2);border-radius:var(--r2);box-shadow:0 16px 48px rgba(0,0,0,.35);padding:8px;display:none;z-index:300}
+.nv-dd::after{content:'';position:absolute;top:100%;left:0;right:0;height:14px}
+.nv-dd:hover .nv-dm{display:block}
+.nv-dm a{display:flex!important;align-items:center;gap:10px;padding:10px 14px!important;font-size:13px;font-weight:500;color:var(--t2)!important;border-radius:8px;text-decoration:none;background:transparent!important}
+.nv-dm a:hover{background:var(--gg)!important;color:var(--g)!important}
+.nv-dm a span{font-size:15px}
+.nv-dr-sub{padding:4px 0 12px 14px;margin-bottom:4px;border-left:2px solid rgba(255,255,255,.1);margin-left:14px}
+.nv-dr-sub a{padding:9px 14px!important;font-size:13.5px!important}
+</style></head><body><header class="nv"><div class="nv-w">
+<a href="../home/" class="nv-l"><img src="data:image/png;base64,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" alt=""><b>Link-a-Link</b></a>
+<nav class="nv-n">
+<a href="../home/#features">Features</a>
+<a href="../home/#how">How it works</a>
+<div class="nv-dd"><a href="../docs/">Docs<svg fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></a><div class="nv-dm">
+<a href="../confluence-mapping/"><span>📍</span>Confluence Mapping</a>
+<a href="../intellinQ/"><span>🔗</span>IntellinQ</a>
+<a href="../insights/"><span>📊</span>Insights</a>
+<a href="../support/"><span>🛟</span>Support Docs</a>
+</div></div>
+<a href="../customer%20support/">Support</a>
+<a href="../trust-centre/" class="on">Trust Centre</a>
+</nav>
+<div class="nv-r">
+<button class="nv-tt" onclick="toggleTheme()" aria-label="Toggle theme">
+<svg class="moon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
+<svg class="sun" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+</button>
+<a href="#" class="nv-c">View on Marketplace ↗</a>
+<button class="nv-mb" onclick="toggleMenu()" aria-label="Menu">
+<svg fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+</button>
+</div></div></header>
+<div class="nv-bk" id="bk" onclick="toggleMenu()"></div>
+<aside class="nv-dr" id="dr">
+<button class="nv-dr-x" onclick="toggleMenu()"><svg fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button>
+<a href="../home/#features">Features</a>
+<a href="../home/#how">How it works</a>
+<a href="../docs/">Docs</a>
+<div class="nv-dr-sub">
+<a href="../confluence-mapping/">📍 Confluence Mapping</a>
+<a href="../intellinQ/">🔗 IntellinQ</a>
+<a href="../insights/">📊 Insights</a>
+<a href="../support/">🛟 Support Docs</a>
+</div>
+<a href="../customer%20support/">Support</a>
+<a href="../trust-centre/" class="on">Trust Centre</a>
+<a href="#" class="nv-dr-cta">View on Marketplace ↗</a>
+<div class="nv-dr-tt"><span>Theme</span><button onclick="toggleTheme()"></button></div>
+</aside><div class="dl"><aside class="dt"><a href="../home/" class="dt-bk"><svg fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6"/></svg>Back to home</a><div class="dt-h"><span>🛡️</span>Trust Centre</div><a class="dt-a on" data-p="overview" onclick="sp(this)">Overview</a><div class="dt-sep"></div><div class="dt-sub">Privacy & Data</div><a class="dt-a" data-p="about-policy" onclick="sp(this)">About This Policy</a><a class="dt-a" data-p="controller" onclick="sp(this)">Data Controller</a><a class="dt-a" data-p="scope" onclick="sp(this)">Scope & Application</a><a class="dt-a" data-p="not-collected" onclick="sp(this)">Data We Do Not Collect</a><a class="dt-a" data-p="processed" onclick="sp(this)">Data We Process</a><a class="dt-a" data-p="forge" onclick="sp(this)">Forge Platform</a><a class="dt-a" data-p="aws" onclick="sp(this)">AWS Infrastructure</a><a class="dt-a" data-p="isolation" onclick="sp(this)">Tenant Isolation</a><a class="dt-a" data-p="deletion" onclick="sp(this)">Your Right to Delete</a><a class="dt-a" data-p="gdpr-basis" onclick="sp(this)">GDPR Lawful Basis</a><a class="dt-a" data-p="data-rights" onclick="sp(this)">Data Subject Rights</a><a class="dt-a" data-p="transfers" onclick="sp(this)">International Transfers</a><a class="dt-a" data-p="retention" onclick="sp(this)">Data Retention</a><div class="dt-sep"></div><div class="dt-sub">Security</div><a class="dt-a" data-p="infra-sec" onclick="sp(this)">Infrastructure Security</a><a class="dt-a" data-p="dev-sec" onclick="sp(this)">Development Security</a><a class="dt-a" data-p="workstation" onclick="sp(this)">Workstation Security</a><a class="dt-a" data-p="vuln-mgmt" onclick="sp(this)">Vulnerability Management</a><a class="dt-a" data-p="incident" onclick="sp(this)">Incident Response</a><a class="dt-a" data-p="policies" onclick="sp(this)">Policies & Procedures</a><div class="dt-sep"></div><div class="dt-sub">End User Agreement</div><a class="dt-a" data-p="licence" onclick="sp(this)">Licence Grant</a><a class="dt-a" data-p="permitted" onclick="sp(this)">Permitted Uses</a><a class="dt-a" data-p="restrictions" onclick="sp(this)">Restrictions</a><a class="dt-a" data-p="marketplace" onclick="sp(this)">Marketplace Terms</a><a class="dt-a" data-p="plans" onclick="sp(this)">Free & Professional Plans</a><a class="dt-a" data-p="subscription" onclick="sp(this)">Subscription & Billing</a><a class="dt-a" data-p="ip" onclick="sp(this)">Intellectual Property</a><a class="dt-a" data-p="warranties" onclick="sp(this)">Warranties</a><a class="dt-a" data-p="liability" onclick="sp(this)">Limitation of Liability</a><a class="dt-a" data-p="term" onclick="sp(this)">Term & Termination</a><a class="dt-a" data-p="support-eua" onclick="sp(this)">Support & Updates</a><a class="dt-a" data-p="governing-law" onclick="sp(this)">Governing Law</a><div class="dt-sep"></div><a class="dt-a" data-p="contact" onclick="sp(this)">Contact</a></aside><main class="dm"><div class="xp" id="p-overview"><h1>Trust Centre</h1><p class="ds">Everything you need to know about how Link-a-Link handles your data, secures our infrastructure, and governs your use of the plugin — in one place.</p>
+<div class="nt nt-i"><div class="nt-l">Privacy-first by design</div><p style="margin:0">Link-a-Link was architected from the ground up to avoid personal data entirely. We do not log user account IDs, names, email addresses, or search queries.</p></div>
+<h2>What's in the Trust Centre</h2>
+<p><strong>Privacy & Data</strong> — Our complete Privacy Policy and GDPR Compliance Statement. What we process, what we don't, where it lives, how long it's kept, and how to delete it.</p>
+<p><strong>Security</strong> — Our responses to Atlassian's Partner Security Questionnaire. Covers infrastructure security, development practices, workstation hardening, vulnerability management, and incident response.</p>
+<p><strong>End User Agreement</strong> — The legal terms that govern your installation and use of the Link-a-Link plugin.</p>
+<h2>Key facts at a glance</h2>
+<table class="tb2"><tr><th>Topic</th><th>Summary</th></tr>
+<tr><td>Personal data collected</td><td><strong style="color:var(--em)">None</strong> — no names, emails, account IDs, or search queries</td></tr>
+<tr><td>Hosting platform</td><td>Atlassian Forge (serverless, Atlassian-managed)</td></tr>
+<tr><td>Mapping data location</td><td>AWS S3 in eu-west-1 (Ireland, European Union)</td></tr>
+<tr><td>Encryption</td><td>AES-256 at rest, TLS 1.2+ in transit</td></tr>
+<tr><td>Tenant isolation</td><td>Application-layer + Forge platform-layer + S3 IAM</td></tr>
+<tr><td>Admin-initiated deletion</td><td>Permanent, immediate, audit-logged</td></tr>
+<tr><td>Governing law</td><td>England and Wales</td></tr>
+<tr><td>Privacy enquiries</td><td><a href="mailto:privacy@agilva.io">privacy@agilva.io</a></td></tr>
+</table>
+<p style="margin-top:24px"><em>Version 1.0 · Effective date: 08 April 2026 · Governed by UK GDPR / EU GDPR</em></p></div><div class="xp" id="p-about-policy" style="display:none"><h1>About This Policy</h1><p class="ds">Our Privacy Policy and GDPR Compliance Statement in one document.</p>
+<p>This Privacy Policy describes how <strong>Agilva Solutions</strong> ("we", "us", "our") processes information in connection with the Link-a-Link plugin for Confluence Cloud ("the Plugin", "the App"). It also constitutes our <strong>GDPR Compliance Statement</strong>, demonstrating how Link-a-Link is designed to meet the requirements of the UK General Data Protection Regulation (UK GDPR) and the EU General Data Protection Regulation (EU GDPR 2016/679).</p>
+<p>Link-a-Link is built on the <strong>Atlassian Forge platform</strong> and distributed through the Atlassian Marketplace. Its core architecture is intentionally privacy-preserving: the Plugin does not collect, store, or transmit any personal data about individual users. This policy explains precisely what data is handled and why.</p>
+<div class="nt nt-i"><div class="nt-l">Privacy by Design</div><p style="margin:0">Link-a-Link was architected from the ground up to avoid personal data entirely. We do not log user account IDs, names, email addresses, or search queries. Our Support Report feature is specifically engineered to contain zero personal data.</p></div></div><div class="xp" id="p-controller" style="display:none"><h1>Data Controller</h1><p class="ds">Who we are and how to contact us regarding data protection matters.</p>
+<p>The data controller for any data processed in connection with Link-a-Link is:</p>
+<table class="tb2">
+<tr><td><strong>Entity</strong></td><td>Agilva Solutions</td></tr>
+<tr><td><strong>Product</strong></td><td>Link-a-Link (Confluence Cloud Plugin)</td></tr>
+<tr><td><strong>Marketplace</strong></td><td>Atlassian Marketplace</td></tr>
+<tr><td><strong>Email</strong></td><td><a href="mailto:privacy@agilva.io">privacy@agilva.io</a></td></tr>
+<tr><td><strong>Website</strong></td><td><a href="https://www.agilva.io">https://www.agilva.io</a></td></tr>
+<tr><td><strong>App ID</strong></td><td><code>ari:cloud:ecosystem::app/2648f02d-fd21-4ca2-aaec-a893d28bf3c9</code></td></tr>
+</table></div><div class="xp" id="p-scope" style="display:none"><h1>Scope & Application</h1><p class="ds">Which features and which users this policy covers.</p>
+<p>This policy applies to all users and administrators of the Link-a-Link plugin installed within a Confluence Cloud workspace. It covers both features of the Plugin:</p>
+<ul>
+<li><strong>Confluence Mapping</strong> — the feature that allows administrators to upload migration CSV files and enables users to search for old Data Centre page URLs or PageIDs and retrieve the corresponding Confluence Cloud equivalents.</li>
+<li><strong>IntellinQ</strong> — the feature that allows administrators to configure document-numbering prefix systems, and enables editors to insert IntellinQ macros on Confluence pages that resolve document numbers into full URLs.</li>
+</ul>
+<p>This policy applies in all countries where Confluence Cloud is used with Link-a-Link installed, including all EU/EEA member states and the United Kingdom.</p></div><div class="xp" id="p-not-collected" style="display:none"><h1>Data We Do Not Collect</h1><p class="ds">Categories of personal data that Link-a-Link never touches.</p>
+<p>Link-a-Link is deliberately designed to avoid collecting personal data. The following categories of data are never collected, stored, or transmitted by the Plugin:</p>
+<table class="tb2">
+<tr><th>Category</th><th>Examples</th><th>Collected?</th></tr>
+<tr><td>User identifiers</td><td>Account IDs, names, usernames</td><td><strong style="color:var(--em)">Never</strong></td></tr>
+<tr><td>Contact information</td><td>Email addresses, phone numbers</td><td><strong style="color:var(--em)">Never</strong></td></tr>
+<tr><td>Search query content</td><td>What users typed in the search box</td><td><strong style="color:var(--em)">Never</strong></td></tr>
+<tr><td>Page content</td><td>Titles, body text, attachments</td><td><strong style="color:var(--em)">Never</strong></td></tr>
+<tr><td>Authentication data</td><td>Passwords, tokens, session IDs</td><td><strong style="color:var(--em)">Never</strong></td></tr>
+<tr><td>Device information</td><td>Browser type, IP address, OS</td><td><strong style="color:var(--em)">Never</strong></td></tr>
+<tr><td>Behavioural analytics</td><td>Clicks, scroll depth, time on page</td><td><strong style="color:var(--em)">Never</strong></td></tr>
+<tr><td>Location data</td><td>GPS, IP-derived location</td><td><strong style="color:var(--em)">Never</strong></td></tr>
+<tr><td>Communication data</td><td>Confluence comments, messages</td><td><strong style="color:var(--em)">Never</strong></td></tr>
+</table></div><div class="xp" id="p-processed" style="display:none"><h1>Data We Process</h1><p class="ds">A detailed breakdown of every data type the Plugin handles.</p>
+<p>Link-a-Link processes a minimal set of non-personal, technical and operational data. The following table sets out each data type, where it is stored, and its purpose.</p>
+<table class="tb2">
+<tr><th>Data type</th><th>What it contains</th><th>Stored where</th></tr>
+<tr><td><strong>URL mapping index</strong></td><td>Old DC URLs or PageIDs mapped to new Cloud URLs — no page content, no personal identifiers</td><td>AWS S3 (eu-west-1) + Forge Storage</td></tr>
+<tr><td><strong>IntellinQ system configuration</strong></td><td>System name, URL prefix, base URL. No user data of any kind</td><td>Atlassian Forge Storage</td></tr>
+<tr><td><strong>Macro document number</strong></td><td>The document number saved per macro instance (e.g. PDL-423). No author or viewer info</td><td>Atlassian Forge Storage</td></tr>
+<tr><td><strong>Admin settings</strong></td><td>Plugin preferences such as redirect timer duration. No personal data</td><td>Atlassian Forge Storage</td></tr>
+<tr><td><strong>Aggregate search counters</strong></td><td>Total searches performed, total found, total not-found — as integers only. No query strings</td><td>Atlassian Forge Storage</td></tr>
+<tr><td><strong>Audit log (uploads)</strong></td><td>Upload timestamps, file row count, processing status. No filenames, no user IDs</td><td>Atlassian Forge Storage</td></tr>
+<tr><td><strong>Error event log</strong></td><td>Technical error type, message, component name. Maximum 30 entries, FIFO rotation</td><td>Atlassian Forge Storage</td></tr>
+<tr><td><strong>S3 presigned upload metadata</strong></td><td>Tenant-scoped S3 object key and expiry timestamp. No personal data</td><td>AWS S3 (eu-west-1)</td></tr>
+</table></div><div class="xp" id="p-forge" style="display:none"><h1>Forge Platform</h1><p class="ds">Link-a-Link runs entirely on Atlassian's hosted serverless infrastructure.</p>
+<p>Link-a-Link is built exclusively on the Atlassian Forge platform. Forge is Atlassian's hosted serverless runtime for Confluence and Jira apps. This has important privacy implications:</p>
+<ul>
+<li><strong>Forge manages all infrastructure.</strong> Agilva Solutions does not operate any servers, virtual machines, or databases for the core Plugin functionality. All Forge Storage data (IntellinQ systems, settings, counters, logs) is stored and managed entirely within Atlassian's infrastructure.</li>
+<li><strong>Agilva Solutions has no direct access to Forge Storage data.</strong> We cannot query, export, or read individual tenants' Forge Storage data outside of the Plugin's own resolver functions. There is no administrative backdoor or database console.</li>
+<li><strong>Atlassian acts as a Data Processor</strong> for data stored in Forge Storage, subject to Atlassian's Privacy Policy and their Data Processing Addendum. Agilva Solutions acts as the Data Controller for determining what data is stored.</li>
+<li><strong>Forge enforces tenant isolation.</strong> The Forge platform prevents one tenant's storage data from being accessible by another tenant's app instance at the platform level, in addition to our own application-level isolation.</li>
+</ul>
+<div class="nt nt-w"><div class="nt-l">Data residency</div><p style="margin:0">Because IntellinQ configurations and all plugin settings are stored in Forge Storage, this data is subject to Atlassian's data residency and security controls. For enterprise data residency requirements, refer to Atlassian's Data Residency documentation at <a href="https://atlassian.com/trust/data-residency">atlassian.com/trust/data-residency</a>.</p></div></div><div class="xp" id="p-aws" style="display:none"><h1>AWS Infrastructure</h1><p class="ds">The Confluence Mapping feature stores URL index data in AWS S3 within the European Union.</p>
+<table class="tb2">
+<tr><th>Component</th><th>Detail</th></tr>
+<tr><td>AWS Region</td><td><strong>eu-west-1 (Ireland, European Union)</strong></td></tr>
+<tr><td>S3 Bucket</td><td><code>link-a-link-storage-eu</code> (private, no public access)</td></tr>
+<tr><td>Lambda Function</td><td><code>link-a-link-processor</code> (eu-west-1)</td></tr>
+<tr><td>Data stored in S3</td><td>Sharded index files containing old→new URL pairs only. No personal data</td></tr>
+<tr><td>Upload mechanism</td><td>Pre-signed S3 PUT URL valid for 15 minutes. File is processed then retained as index</td></tr>
+<tr><td>Encryption</td><td>S3 server-side encryption (SSE-S3) at rest. TLS in transit</td></tr>
+<tr><td>Sub-processor</td><td>Amazon Web Services EMEA SARL (AWS) — subject to AWS Data Processing Addendum</td></tr>
+</table></div><div class="xp" id="p-isolation" style="display:none"><h1>Tenant Isolation</h1><p class="ds">How Link-a-Link guarantees that one workspace's data never touches another's.</p>
+<p>Link-a-Link is a multi-tenant application. Every workspace that installs the Plugin receives a completely isolated data environment. Data belonging to one Confluence workspace can never be accessed by, mixed with, or exposed to any other workspace.</p>
+<p>This isolation is implemented at <strong>three independent layers</strong>:</p>
+<ul>
+<li><strong>Application layer</strong> — Every Forge Storage key used by the Plugin is namespaced with the workspace's unique <code>tenantId</code> (e.g. <code>searchStats-{tenantId}</code>, <code>smartLinks-{tenantId}</code>). No query or operation can read across tenant boundaries at the application level.</li>
+<li><strong>Platform layer</strong> — The Atlassian Forge platform enforces tenant isolation at the runtime level. A Forge app instance running for Tenant A is physically separated from the instance running for Tenant B — they cannot share storage, memory, or context.</li>
+<li><strong>S3 layer</strong> — CSV upload keys and index shard files are prefixed with the <code>tenantId</code> in S3, and IAM policies ensure only the Lambda function with the correct context can access them.</li>
+</ul>
+<div class="nt nt-s"><div class="nt-l">Multi-tenant verification</div><p style="margin:0">Tenant isolation has been validated through the Atlassian Forge Context Token (FCT) mechanism, which ensures that each resolver invocation is authenticated to the correct workspace before any storage read or write operation takes place.</p></div></div><div class="xp" id="p-deletion" style="display:none"><h1>Your Right to Delete</h1><p class="ds">Admin-initiated deletion is a core, prominent feature — not a support-ticket process.</p>
+<p>Workspace administrators have the ability to permanently delete the entire Confluence Mapping dataset directly from the Plugin's admin settings panel. When an admin initiates a deletion:</p>
+<ol>
+<li>The admin clicks the <strong>"Delete all mapping data"</strong> button in the Link-a-Link settings panel.</li>
+<li>A confirmation prompt is displayed to prevent accidental deletion.</li>
+<li>Upon confirmation, the Plugin sends a deletion request to the Forge resolver.</li>
+<li>The resolver deletes all sharded index files from the AWS S3 bucket for that tenant.</li>
+<li>All associated Forge Storage keys for the mapping dataset are purged.</li>
+<li>The operation is recorded in the audit log (timestamp and action type only — no user ID).</li>
+<li>The mapping data cannot be recovered after deletion is confirmed.</li>
+</ol>
+<div class="nt nt-d"><div class="nt-l">Permanent deletion guarantee</div><p style="margin:0">When mapping data is deleted via the admin panel, it is removed from both AWS S3 and all Forge Storage index keys simultaneously. There is no backup, soft-delete, or archival copy retained by Agilva Solutions. The deletion is permanent and irreversible.</p></div>
+<h2>IntellinQ system deletion</h2>
+<p>To delete IntellinQ system configurations, admins use the per-system delete function in the IntellinQ admin tab. Individual systems can be removed at any time, or the entire list can be cleared. Deleted IntellinQ configurations are removed from Forge Storage immediately and permanently.</p></div><div class="xp" id="p-gdpr-basis" style="display:none"><h1>GDPR Lawful Basis</h1><p class="ds">Lawful basis under UK GDPR Article 6 for each processing activity.</p>
+<p>Under UK GDPR Article 6, processing of personal data must have a lawful basis. Because Link-a-Link <strong>does not process personal data</strong> as defined by GDPR, a formal lawful basis analysis is not strictly required. However, to the extent that any information processed by the Plugin could theoretically be characterised as personal data in any jurisdiction, we rely on the following:</p>
+<table class="tb2">
+<tr><th>Processing activity</th><th>Lawful basis</th><th>Notes</th></tr>
+<tr><td>Storage of URL mapping index</td><td>Art. 6(1)(b) — Performance of a contract</td><td>Necessary to deliver the core contracted service</td></tr>
+<tr><td>IntellinQ system configuration</td><td>Art. 6(1)(b) — Performance of a contract</td><td>Required to provide the IntellinQ macro functionality</td></tr>
+<tr><td>Aggregate search counters</td><td>Art. 6(1)(f) — Legitimate interests</td><td>Service quality monitoring. No individual data</td></tr>
+<tr><td>Technical error logs</td><td>Art. 6(1)(f) — Legitimate interests</td><td>Security and system stability. No personal data</td></tr>
+<tr><td>Audit log</td><td>Art. 6(1)(b) — Performance of a contract</td><td>Necessary for admin transparency. No user identifiers</td></tr>
+</table></div><div class="xp" id="p-data-rights" style="display:none"><h1>Data Subject Rights</h1><p class="ds">How UK GDPR and EU GDPR rights apply in the context of Link-a-Link.</p>
+<p>Under UK GDPR and EU GDPR, individuals have the following rights regarding their personal data. Given that Link-a-Link does not collect personal data, most of these rights are not engaged. We set out how each right applies in the context of this Plugin:</p>
+<h2>Right of access (Art. 15)</h2><p>Link-a-Link holds no data attributable to individual users. There is nothing to access. Workspace-level data (URL mappings) can be inspected by admins directly in the Plugin interface.</p>
+<h2>Right to rectification (Art. 16)</h2><p>URL mapping data can be corrected by the admin uploading a revised CSV. IntellinQ systems can be edited at any time in the admin panel.</p>
+<h2>Right to erasure (Art. 17)</h2><p>Admins can permanently delete all mapping data via the admin settings panel (see "Your Right to Delete"). Individual IntellinQ systems can be deleted at any time. These actions take immediate effect.</p>
+<h2>Right to restrict processing (Art. 18)</h2><p>The Plugin can be uninstalled at any time by a Confluence workspace admin, which terminates all processing immediately.</p>
+<h2>Right to data portability (Art. 20)</h2><p>URL mapping data can be exported as CSV from the admin panel at any time. IntellinQ system configurations can be exported per-folder or in full.</p>
+<h2>Right to object (Art. 21)</h2><p>Not engaged — processing is based on contractual necessity and legitimate interests. No profiling or automated decision-making takes place.</p>
+<h2>Rights related to automated decisions (Art. 22)</h2><p>Link-a-Link performs no automated decision-making or profiling with legal or similarly significant effects on individuals.</p></div><div class="xp" id="p-transfers" style="display:none"><h1>International Data Transfers</h1><p class="ds">Where your data lives — and what contractual safeguards apply.</p>
+<p>The URL mapping index is stored in <strong>AWS S3 in the eu-west-1 region</strong> (Ireland, European Union). No data is transferred outside the EU/EEA in connection with the Confluence Mapping feature.</p>
+<p>Forge Storage data is managed by Atlassian. Atlassian's data residency for Forge apps is governed by Atlassian's own policies. For customers with enterprise data residency requirements, Atlassian offers data residency controls at <a href="https://atlassian.com/trust/data-residency">atlassian.com/trust/data-residency</a>. Agilva Solutions does not make independent decisions about Forge Storage data location.</p>
+<p>To the extent any transfers of data occur to third countries (outside the EU/EEA and UK), they are covered by the European Commission's Standard Contractual Clauses (SCCs) under AWS's Data Processing Addendum and Atlassian's Data Processing Addendum respectively.</p></div><div class="xp" id="p-retention" style="display:none"><h1>Data Retention</h1><p class="ds">How long each data type is kept, and when it's deleted.</p>
+<table class="tb2">
+<tr><th>Data type</th><th>Retention period</th><th>Deletion trigger</th></tr>
+<tr><td>URL mapping index (S3)</td><td>Until admin deletes it</td><td>Admin-initiated deletion (immediate)</td></tr>
+<tr><td>URL mapping index (Forge)</td><td>Until admin deletes it</td><td>Admin-initiated deletion (immediate)</td></tr>
+<tr><td>IntellinQ system configs</td><td>Until admin deletes them</td><td>Per-system delete or full clear</td></tr>
+<tr><td>Macro document numbers</td><td>Until macro is deleted from page</td><td>Confluence page or macro deletion</td></tr>
+<tr><td>Aggregate search counters</td><td>Indefinite (anonymous integers)</td><td>App uninstall</td></tr>
+<tr><td>Audit log entries</td><td>Indefinite, max 30 per tenant</td><td>FIFO rotation or app uninstall</td></tr>
+<tr><td>Error event log</td><td>Max 30 entries (FIFO rotation)</td><td>Auto-rotated on each new entry</td></tr>
+<tr><td>Admin settings</td><td>Until admin changes or uninstalls</td><td>App uninstall</td></tr>
+<tr><td>App uninstall</td><td colspan="2">All Forge Storage data purged by Atlassian within 30 days. AWS S3 mapping data purged within 60 days.</td></tr>
+</table></div><div class="xp" id="p-infra-sec" style="display:none"><h1>Infrastructure Security</h1><p class="ds">How we secure the infrastructure that runs Link-a-Link.</p>
+<p>Link-a-Link is built exclusively on the Atlassian Forge platform (serverless, Atlassian-managed infrastructure). The app does not collect, store, or transmit any personal data. All tenant data is isolated at both application and platform level.</p>
+<h2>Encryption</h2>
+<ul>
+<li><strong>Data at rest</strong> — URL mapping data stored in AWS S3 (eu-west-1) is encrypted with <strong>AES-256 server-side encryption (SSE-S3)</strong></li>
+<li><strong>Data in transit</strong> — All data transfers use <strong>TLS 1.2+</strong></li>
+<li><strong>Backup data</strong> — Backup data is also encrypted at rest</li>
+<li><strong>IntellinQ configurations</strong> — Stored in Forge Storage managed entirely by Atlassian, under Atlassian's encryption and security controls</li>
+</ul>
+<h2>Access controls</h2>
+<ul>
+<li><strong>Forge Sandbox</strong> — All resolver code runs inside Atlassian's isolated Forge runtime, which enforces strict security boundaries between tenants and between the app and the wider internet</li>
+<li><strong>Presigned URLs</strong> — CSV uploads use time-limited presigned S3 URLs (15-minute expiry) that grant no additional access to the bucket</li>
+<li><strong>Least-privilege IAM</strong> — The Lambda execution role has only the minimum S3 permissions required (GetObject, PutObject on the tenant prefix). No broad S3 access is granted</li>
+<li><strong>No credentials in code</strong> — AWS credentials are stored as Forge environment variables (production) and never hardcoded</li>
+<li><strong>Forge Context Token (FCT)</strong> — Every resolver invocation is validated against Atlassian's FCT mechanism, ensuring the caller is authenticated to the correct workspace</li>
+</ul>
+<h2>Logging</h2>
+<ul>
+<li>We maintain logs with timestamps for key system activities</li>
+<li><strong>We do not log sensitive data</strong> — no credentials, API/access tokens, passwords, search queries, or personal information are ever written to any log</li>
+</ul></div><div class="xp" id="p-dev-sec" style="display:none"><h1>Development Security</h1><p class="ds">How we build and release Link-a-Link safely.</p>
+<h2>Source control</h2>
+<ul>
+<li><strong>Multi-Factor Authentication (MFA)</strong> is required for all access to our source code management system</li>
+<li><strong>Pull requests are required</strong> to push any change to production code</li>
+<li><strong>Peer approval is required</strong> on every pull request before merge</li>
+</ul>
+<h2>Secure coding practices</h2>
+<ul>
+<li>We have reviewed the <strong>OWASP Top 10</strong> most common security risks when building apps, and actively design against them</li>
+<li><strong>Security testing is integrated into our development process</strong></li>
+<li>We ensure the libraries and frameworks we use are free from known vulnerabilities before including them</li>
+<li>We <strong>manage and rotate API keys and secrets periodically</strong></li>
+</ul>
+<h2>Vulnerability scanning</h2>
+<p>We perform <strong>SCA (Software Composition Analysis)</strong> — dependency and open-source library scans — and review the results as part of our release process.</p></div><div class="xp" id="p-workstation" style="display:none"><h1>Workstation Security</h1><p class="ds">How the devices used to build Link-a-Link are secured.</p>
+<ul>
+<li><strong>Anti-Virus / Endpoint protection</strong> is deployed on all workstations used for app development</li>
+<li><strong>Full disk encryption (FDE)</strong> is enabled on all development workstations</li>
+<li><strong>Patch management</strong> — we have a process in place to keep operating systems and software up to date</li>
+<li><strong>Multi-Factor Authentication (MFA)</strong> is required for all accounts accessing company systems</li>
+<li><strong>Strong password policy</strong> is enforced across all company accounts</li>
+</ul></div><div class="xp" id="p-vuln-mgmt" style="display:none"><h1>Vulnerability Management</h1><p class="ds">How we find, triage, and fix security issues.</p>
+<h2>Scanning</h2>
+<p>We perform <strong>SCA (Software Composition Analysis)</strong> to scan our dependencies and open-source libraries for known vulnerabilities. Results are reviewed as part of every release.</p>
+<h2>Atlassian Marketplace Bug Bounty</h2>
+<p>Link-a-Link <strong>participates in the Atlassian Marketplace security bug bounty program</strong>. Security researchers who identify vulnerabilities in our app can report them through Atlassian's official channels.</p>
+<h2>Security bug-fix policy</h2>
+<p>We have read and follow <strong>Atlassian's Marketplace security bug-fix policy</strong>. Critical vulnerabilities are triaged and remediated according to Atlassian's required timelines.</p>
+<h2>Customer notification</h2>
+<p>In the event of a critical vulnerability in our app, we will <strong>notify both affected customers and Atlassian</strong>, following Atlassian's app vulnerability notification template and guidelines.</p>
+<h2>Security contact</h2>
+<p>A dedicated security contact for Link-a-Link has been registered with Atlassian at <code>ecosystem.atlassian.net</code>.</p>
+<div class="nt nt-i"><div class="nt-l">Reporting a vulnerability</div><p style="margin:0">If you discover a potential security issue, please report it via <a href="mailto:privacy@agilva.io">privacy@agilva.io</a>. We will acknowledge receipt within 2 business days.</p></div></div><div class="xp" id="p-incident" style="display:none"><h1>Incident Response</h1><p class="ds">How we respond when something goes wrong.</p>
+<p>We maintain a <strong>comprehensive incident response plan</strong> that outlines the steps to be taken in the event of a security incident or breach. Our plan follows Atlassian's published incident response guidelines for Marketplace partners.</p>
+<h2>On detection</h2>
+<ol>
+<li><strong>Containment</strong> — the affected component is isolated to prevent further impact</li>
+<li><strong>Assessment</strong> — scope, severity, and potentially affected tenants are identified</li>
+<li><strong>Notification</strong> — Atlassian and affected customers are notified according to Atlassian's Security Incident Notification guide</li>
+<li><strong>Remediation</strong> — the root cause is fixed and a patch is deployed through the Forge platform</li>
+<li><strong>Post-incident review</strong> — we document lessons learned and update controls accordingly</li>
+</ol>
+<h2>Communication channels</h2>
+<p>Customers will be notified via the Atlassian Marketplace and via email to registered admin contacts where applicable. For urgent security enquiries, contact <a href="mailto:privacy@agilva.io">privacy@agilva.io</a>.</p></div><div class="xp" id="p-policies" style="display:none"><h1>Policies & Procedures</h1><p class="ds">The organisational controls that support our security posture.</p>
+<ul>
+<li><strong>Strong password policy</strong> enforced across the company</li>
+<li><strong>Multi-Factor Authentication (MFA)</strong> required for all accounts accessing company systems</li>
+<li><strong>Incident response plan</strong> following Atlassian's published guidelines</li>
+<li><strong>Pull request + peer approval</strong> required for all production code changes</li>
+<li><strong>Vulnerability notification policy</strong> — we notify Atlassian and affected customers of any critical vulnerability</li>
+<li><strong>Security bug-fix policy</strong> — we follow Atlassian's published timelines for critical bug remediation</li>
+<li><strong>OWASP Top 10 awareness</strong> integrated into our design and review process</li>
+</ul>
+<h2>Current certifications and audit scope</h2>
+<p>As a micro-sized business (1–9 employees) operating exclusively on the Atlassian Forge platform, we currently rely on Atlassian's platform-level certifications (including SOC 2, ISO 27001 at the platform level, GDPR, and others) rather than maintaining independent certifications ourselves. We do not currently hold ISO, PCI, HIPAA, or SOC 2 certification at the Agilva Solutions entity level, and do not currently perform external penetration testing or third-party regulatory audits.</p>
+<p>For the underlying infrastructure — Atlassian Forge, AWS S3, AWS Lambda — you can refer to their published certifications and trust documentation.</p></div><div class="xp" id="p-licence" style="display:none"><h1>Licence Grant</h1><p class="ds">What Agilva Solutions grants you when you install Link-a-Link.</p>
+<p>Subject to the terms of this End User Agreement and payment of any applicable Subscription fees, <strong>Agilva Solutions grants you a limited, non-exclusive, non-transferable, non-sublicensable, revocable licence</strong> to:</p>
+<ul>
+<li>Install and activate the Plugin within your Workspace</li>
+<li>Permit all Authorised Users within your Workspace to access and use the Plugin's features to the extent provided by your plan (Free or Professional)</li>
+<li>Use the Plugin solely for your internal business purposes in connection with Confluence Cloud</li>
+<li>Access and use any documentation, support materials, and updates provided by Agilva Solutions in connection with the Plugin</li>
+</ul>
+<p>This licence does not convey any ownership interest in the Plugin. All rights not expressly granted are reserved by Agilva Solutions.</p></div><div class="xp" id="p-permitted" style="display:none"><h1>Permitted Uses</h1><p class="ds">What you may do with the Plugin.</p>
+<p>You may use the Plugin for the following purposes:</p>
+<ul>
+<li>Uploading CSV files containing URL migration mapping data for your organisation's Confluence workspace</li>
+<li>Performing searches for old Confluence Data Centre page URLs or PageIDs to retrieve Cloud equivalents</li>
+<li>Configuring IntellinQ prefix systems for your organisation's document numbering schemes</li>
+<li>Inserting IntellinQ macros on Confluence pages to provide live document links</li>
+<li>Viewing analytics dashboards and generating support reports for your own workspace</li>
+<li>Exporting mapping data and IntellinQ configurations for your own records</li>
+<li>Initiating deletion of your workspace's data as described in the Privacy & Data section</li>
+</ul></div><div class="xp" id="p-restrictions" style="display:none"><h1>Restrictions</h1><p class="ds">What you may not do with the Plugin.</p>
+<p>You must not, and must ensure that Authorised Users do not:</p>
+<ul>
+<li>Copy, modify, translate, adapt, reverse engineer, decompile, disassemble, or create derivative works based on the Plugin or its underlying code</li>
+<li>Sell, resell, sublicence, rent, lend, lease, or otherwise transfer the Plugin or any licence to use it to any third party</li>
+<li>Use the Plugin in any way that violates applicable law, regulation, or third-party rights, including intellectual property rights</li>
+<li>Use the Plugin to upload, store, or process data that you do not have the right to use, or that contains unlawful content</li>
+<li>Attempt to circumvent, disable, or interfere with any security, access control, or rate-limiting mechanism of the Plugin or the Forge platform</li>
+<li>Use the Plugin to upload malicious files, scripts, or payloads to the associated AWS S3 infrastructure</li>
+<li>Access or attempt to access another workspace's data through the Plugin</li>
+<li>Misrepresent your identity or affiliation when using the Plugin or contacting Agilva Solutions</li>
+<li>Use the Plugin in any way that could damage, overload, or impair the Forge platform, AWS infrastructure, or Atlassian systems</li>
+</ul></div><div class="xp" id="p-marketplace" style="display:none"><h1>Atlassian Marketplace Terms</h1><p class="ds">Additional terms that govern your use because the Plugin is distributed via Atlassian.</p>
+<p>The Plugin is distributed exclusively through the Atlassian Marketplace. Your use of the Plugin is therefore also subject to:</p>
+<ul>
+<li>The <a href="https://atlassian.com/licensing/marketplace/end-user-agreement-v1">Atlassian Marketplace End User Agreement</a></li>
+<li>The <a href="https://atlassian.com/legal/customer-agreement">Atlassian Terms of Service</a></li>
+<li>The <a href="https://atlassian.com/legal/privacy-policy">Atlassian Privacy Policy</a></li>
+<li>The Atlassian Forge Terms of Service, to the extent applicable</li>
+</ul>
+<p>Atlassian manages all billing, payments, and subscription management for the Plugin through the Marketplace. <strong>Agilva Solutions does not hold or process your payment card data.</strong> All payment-related terms, refund policies, and billing disputes are governed by the Atlassian Marketplace Terms.</p>
+<p>Atlassian acts as the billing intermediary and marketplace operator. Agilva Solutions is the developer and licensor of the Plugin. Where the Atlassian Marketplace Terms impose obligations on "Experts" or "app developers", Agilva Solutions accepts those obligations.</p></div><div class="xp" id="p-plans" style="display:none"><h1>Free & Professional Plans</h1><p class="ds">What each plan includes.</p>
+<table class="tb2">
+<tr><th>Feature</th><th>Free Plan</th><th>Professional Plan</th></tr>
+<tr><td>Confluence Mapping</td><td>✓ Included</td><td>✓ Included</td></tr>
+<tr><td>URL mapping rows</td><td>Up to 5,000</td><td>Unlimited</td></tr>
+<tr><td>IntellinQ systems</td><td>1 system</td><td>Unlimited</td></tr>
+<tr><td>Single and bulk search</td><td>✓ Included</td><td>✓ Included</td></tr>
+<tr><td>Dashboard and analytics</td><td>✗ Not included</td><td>✓ Included</td></tr>
+<tr><td>IntellinQ macro on pages</td><td>✗ Not included</td><td>✓ Included</td></tr>
+<tr><td>Priority support</td><td>✗ Not included</td><td>✓ Included</td></tr>
+<tr><td>Data export (CSV)</td><td>✓ Included</td><td>✓ Included</td></tr>
+<tr><td>Admin-initiated data deletion</td><td>✓ Included</td><td>✓ Included</td></tr>
+<tr><td><strong>Price</strong></td><td><strong>$0 / month</strong></td><td><strong>From $3.50 / user / month</strong></td></tr>
+<tr><td>Billing cap</td><td>N/A</td><td>$699 / month (2,000+ users)</td></tr>
+</table>
+<p>Agilva Solutions reserves the right to modify plan features and pricing with at least 30 days' notice. Changes will be communicated via the Atlassian Marketplace listing and, where possible, via in-app notification.</p></div><div class="xp" id="p-subscription" style="display:none"><h1>Subscription, Payment & Renewal</h1><p class="ds">How billing works.</p>
+<p>All billing for the Professional plan is handled <strong>exclusively through the Atlassian Marketplace</strong>.</p>
+<ul>
+<li><strong>Pricing</strong> — The Plugin is priced per Confluence user per month, as published on the Atlassian Marketplace listing. Capped at $699/month for workspaces with 2,000+ users</li>
+<li><strong>Annual billing</strong> — Annual billing options may be available through the Marketplace at a discounted rate</li>
+<li><strong>Automatic renewal</strong> — Subscriptions renew automatically at the end of each billing period unless cancelled through the Atlassian Marketplace admin panel</li>
+<li><strong>Cancellation</strong> — You may cancel at any time through the Atlassian Marketplace. Cancellation takes effect at the end of the current billing period. No partial refunds are provided for unused periods except as required by Atlassian's refund policy</li>
+<li><strong>Free plan downgrade</strong> — Upon cancellation of Professional, your workspace reverts to the Free plan. Existing data is retained subject to Free plan limits</li>
+<li><strong>Taxes</strong> — Applicable taxes are added by Atlassian during checkout and are the responsibility of the Licensee</li>
+</ul></div><div class="xp" id="p-ip" style="display:none"><h1>Intellectual Property</h1><p class="ds">Who owns what.</p>
+<h2>Agilva Solutions IP</h2>
+<p>The Plugin, including all source code, algorithms, user interfaces, documentation, trademarks, and branding (including the Link-a-Link name and logo), is the <strong>exclusive intellectual property of Agilva Solutions</strong>. Nothing in this Agreement transfers any intellectual property rights to you.</p>
+<h2>Your data</h2>
+<p>All data you upload or input through the Plugin (including CSV mapping files and IntellinQ configurations) <strong>remains your property</strong>. Agilva Solutions does not claim any ownership over your data. You grant Agilva Solutions a limited, non-exclusive, royalty-free licence to process that data solely for the purpose of providing the Plugin's functionality to you.</p>
+<h2>Feedback</h2>
+<p>If you provide suggestions, feedback, or ideas about the Plugin, you grant Agilva Solutions the right to use such feedback without restriction, compensation, or attribution. Feedback does not create any obligation for Agilva Solutions to implement any changes.</p></div><div class="xp" id="p-warranties" style="display:none"><h1>Warranties & Disclaimers</h1><p class="ds">What we promise — and what we don't.</p>
+<h2>Agilva Solutions' warranty</h2>
+<p>Agilva Solutions warrants that it has the right to grant the licence in this Agreement and that, to its knowledge, the Plugin does not infringe any third-party intellectual property rights.</p>
+<h2>Disclaimer</h2>
+<p>EXCEPT AS EXPRESSLY SET OUT ABOVE, THE PLUGIN IS PROVIDED <strong>"AS IS" AND "AS AVAILABLE"</strong>, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED. AGILVA SOLUTIONS EXPRESSLY DISCLAIMS ALL WARRANTIES INCLUDING, WITHOUT LIMITATION, IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, ACCURACY, NON-INFRINGEMENT, AND ANY WARRANTIES ARISING FROM COURSE OF DEALING OR USAGE OF TRADE.</p>
+<h2>Confluence and Atlassian</h2>
+<p>The Plugin operates within the Confluence Cloud and Forge environment operated by Atlassian. Agilva Solutions makes no warranty regarding the availability, performance, or security of the Atlassian platform itself.</p>
+<h2>Data accuracy</h2>
+<p>The accuracy of search results produced by the Confluence Mapping feature depends entirely on the accuracy of the CSV data uploaded by the administrator. Agilva Solutions makes no warranty that search results will be complete, accurate, or current.</p></div><div class="xp" id="p-liability" style="display:none"><h1>Limitation of Liability</h1><p class="ds">The limits on what Agilva Solutions is liable for.</p>
+<h2>Exclusion of consequential loss</h2>
+<p>TO THE MAXIMUM EXTENT PERMITTED BY APPLICABLE LAW, AGILVA SOLUTIONS SHALL NOT BE LIABLE FOR ANY <strong>INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL, PUNITIVE, OR EXEMPLARY DAMAGES</strong>, INCLUDING LOSS OF PROFITS, LOSS OF DATA, LOSS OF GOODWILL, BUSINESS INTERRUPTION, OR COSTS OF SUBSTITUTE SERVICES, HOWEVER CAUSED AND UNDER ANY THEORY OF LIABILITY, EVEN IF AGILVA SOLUTIONS HAS BEEN ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.</p>
+<h2>Cap on liability</h2>
+<p>TO THE MAXIMUM EXTENT PERMITTED BY LAW, AGILVA SOLUTIONS'S TOTAL CUMULATIVE LIABILITY ARISING OUT OF OR RELATED TO THIS AGREEMENT SHALL NOT EXCEED THE GREATER OF:</p>
+<ul>
+<li>(a) THE TOTAL FEES PAID BY YOU FOR THE PLUGIN IN THE <strong>THREE (3) MONTHS</strong> IMMEDIATELY PRECEDING THE EVENT GIVING RISE TO LIABILITY; OR</li>
+<li>(b) <strong>ONE HUNDRED POUNDS STERLING (£100)</strong></li>
+</ul>
+<h2>Exceptions</h2>
+<p>These limitations do not apply to: (a) death or personal injury caused by negligence; (b) fraud or fraudulent misrepresentation; or (c) any liability that cannot be excluded or limited under applicable law.</p></div><div class="xp" id="p-term" style="display:none"><h1>Term & Termination</h1><p class="ds">How the Agreement starts, runs, and ends.</p>
+<h2>Term</h2>
+<p>This Agreement commences on the date you install or activate the Plugin and continues until terminated in accordance with this section.</p>
+<h2>Termination by you</h2>
+<p>You may terminate this Agreement at any time by <strong>uninstalling the Plugin from your Confluence workspace</strong> through the Atlassian Marketplace admin panel. Termination does not entitle you to any refund except as provided by Atlassian's Marketplace refund policy.</p>
+<h2>Termination by Agilva Solutions</h2>
+<p>Agilva Solutions may terminate or suspend your access to the Plugin immediately and without notice if:</p>
+<ul>
+<li>(a) You materially breach this Agreement and fail to cure such breach within 14 days of written notice</li>
+<li>(b) You become insolvent, enter administration, or are subject to insolvency proceedings</li>
+<li>(c) Atlassian removes the Plugin from the Marketplace</li>
+</ul>
+<h2>Effect of termination</h2>
+<p>Upon termination: (a) all licences granted under this Agreement immediately cease; (b) you must cease all use of the Plugin; (c) data retention is as described in the Data Retention section. Certain provisions (Restrictions, IP, Warranties, Liability, Indemnification, Governing Law, General) survive termination.</p></div><div class="xp" id="p-support-eua" style="display:none"><h1>Support & Updates</h1><p class="ds">What support you receive and how updates work.</p>
+<h2>Support</h2>
+<p>Agilva Solutions will provide <strong>reasonable technical support</strong> for the Plugin through the Atlassian Marketplace support channel and at <a href="mailto:privacy@agilva.io">privacy@agilva.io</a>. Professional plan subscribers receive <strong>priority support</strong> response. Support is provided in English.</p>
+<h2>Updates</h2>
+<p>Agilva Solutions may release updates, patches, and new versions of the Plugin at its discretion. Updates are deployed through the Atlassian Marketplace and Forge platform. Some updates may change or remove features — Agilva Solutions will provide reasonable notice of material feature changes.</p>
+<h2>No SLA for Free plan</h2>
+<p>The Free plan is provided without any service level agreement. Professional plan availability targets follow <strong>Atlassian's Forge platform SLA</strong>.</p></div><div class="xp" id="p-governing-law" style="display:none"><h1>Governing Law & Disputes</h1><p class="ds">The law that applies and where disputes are resolved.</p>
+<h2>Governing law</h2>
+<p>This Agreement is governed by and construed in accordance with the <strong>laws of England and Wales</strong>, without regard to its conflict of law provisions.</p>
+<h2>Jurisdiction</h2>
+<p>The parties agree to submit to the <strong>exclusive jurisdiction of the courts of England and Wales</strong> for the resolution of any dispute arising under or in connection with this Agreement, except where mandatory local law requires a different jurisdiction.</p>
+<h2>Dispute resolution</h2>
+<p>Before commencing any legal proceedings, the parties agree to attempt in good faith to resolve any dispute through direct negotiation for a period of <strong>30 days</strong> from written notice of the dispute.</p>
+<h2>Consumer rights</h2>
+<p>Nothing in this Agreement affects any statutory rights you have as a consumer under applicable law that cannot be excluded or modified by contract.</p></div><div class="xp" id="p-contact" style="display:none"><h1>Contact</h1><p class="ds">How to reach us regarding privacy, security, or licensing matters.</p>
+<table class="tb2">
+<tr><td><strong>Organisation</strong></td><td>Agilva Solutions</td></tr>
+<tr><td><strong>Plugin</strong></td><td>Link-a-Link for Confluence Cloud</td></tr>
+<tr><td><strong>Privacy enquiries</strong></td><td><a href="mailto:privacy@agilva.io">privacy@agilva.io</a></td></tr>
+<tr><td><strong>Security enquiries</strong></td><td><a href="mailto:privacy@agilva.io">privacy@agilva.io</a></td></tr>
+<tr><td><strong>Legal / licensing</strong></td><td><a href="mailto:privacy@agilva.io">privacy@agilva.io</a></td></tr>
+<tr><td><strong>Product support</strong></td><td><a href="../customer%20support/">Customer Support Portal</a></td></tr>
+<tr><td><strong>Website</strong></td><td><a href="https://www.agilva.io">https://www.agilva.io</a></td></tr>
+<tr><td><strong>Marketplace</strong></td><td>marketplace.atlassian.com (search: Link-a-Link)</td></tr>
+</table>
+<h2>Supervisory authority</h2>
+<p>If you are located in the EU/EEA and believe we have not handled your privacy concerns adequately, you have the right to lodge a complaint with your national supervisory authority (e.g. the ICO in the UK at <a href="https://ico.org.uk">ico.org.uk</a>, or the relevant Data Protection Authority in your EU member state).</p>
+<p style="margin-top:32px;font-size:12px;color:var(--t3)"><em>Privacy Policy version 1.0 · End User Agreement version 1.0 · Effective date: 08 April 2026 · Last updated: 08 April 2026 · © 2026 Agilva Solutions. All rights reserved.</em></p></div></main></div><button class="dm-mb" onclick="toggleSb()" aria-label="Menu"><svg fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg></button><footer class="ft"><div class="ft-w">
+<div class="ft-top">
+<div>
+<a href="../home/" class="ft-l"><img src="data:image/png;base64,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" alt=""><b>Link-a-Link</b></a>
+<p class="ft-tag">Links. Mapped. Managed.</p>
+</div>
+<div class="ft-cols">
+<div class="ft-col"><h4>Product</h4><a href="../home/#features">Features</a><a href="../home/#how">How it works</a></div>
+<div class="ft-col"><h4>Resources</h4><a href="../docs/">Documentation</a><a href="../customer%20support/">Support</a><a href="../trust-centre/">Trust Centre</a></div>
+<div class="ft-col"><h4>Company</h4><a href="../about/">About</a><a href="#">Marketplace ↗</a></div>
+</div>
+</div>
+<div class="ft-bot">
+<div class="ft-c">© 2026 Link-a-Link by <em>Agilva Solutions</em></div>
+<div class="ft-c">Built on Atlassian Forge</div>
+</div>
+</div></footer><script>(function(){var t=localStorage.getItem("llTheme")||"dark";document.documentElement.setAttribute("data-theme",t);})();function toggleTheme(){var c=document.documentElement.getAttribute("data-theme");var n=c==="dark"?"light":"dark";document.documentElement.setAttribute("data-theme",n);localStorage.setItem("llTheme",n);}function toggleMenu(){document.getElementById("dr").classList.toggle("on");document.getElementById("bk").classList.toggle("on");document.body.style.overflow=document.getElementById("dr").classList.contains("on")?"hidden":"";}function sp(el){document.querySelectorAll(".dt-a").forEach(x=>x.classList.remove("on"));el.classList.add("on");document.querySelectorAll(".xp").forEach(x=>x.style.display="none");var t=document.getElementById("p-"+el.dataset.p);if(t){t.style.display="block";window.scrollTo({top:0,behavior:"smooth"})}var sb=document.querySelector(".dt");if(sb&&sb.classList.contains("on"))sb.classList.remove("on")}function toggleSb(){document.querySelector(".dt").classList.toggle("on")}</script></body></html>
