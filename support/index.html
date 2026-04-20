@@ -62,7 +62,7 @@ a{color:var(--g);text-decoration:none}a:hover{color:var(--gl)}
 
 /* ═══ NAV ═══ */
 .nv{position:fixed;top:0;left:0;right:0;z-index:200;height:60px;background:var(--nv);border-bottom:1px solid rgba(255,255,255,.06);box-shadow:0 1px 0 var(--gg)}
-.nv-w{max-width:1180px;margin:0 auto;padding:0 24px;display:flex;align-items:center;height:100%;gap:8px}
+.nv-w{max-width:100%;margin:0;padding:0 32px;display:flex;align-items:center;height:100%;gap:8px}
 .nv-l{display:flex;align-items:center;gap:10px;text-decoration:none;margin-right:auto}
 .nv-l img{height:24px}
 .nv-l b{font-size:16px;color:#fff;font-weight:700;letter-spacing:-.3px}
@@ -98,7 +98,7 @@ a{color:var(--g);text-decoration:none}a:hover{color:var(--gl)}
 
 /* ═══ FOOTER ═══ */
 .ft{background:var(--nv);padding:40px 24px 28px;color:rgba(255,255,255,.7)}
-.ft-w{max-width:1180px;margin:0 auto}
+.ft-w{max-width:100%;margin:0;padding:0 32px}
 .ft-top{display:flex;justify-content:space-between;flex-wrap:wrap;gap:32px;padding-bottom:28px;border-bottom:1px solid rgba(255,255,255,.08)}
 .ft-l{display:flex;align-items:center;gap:10px;text-decoration:none;margin-bottom:10px}
 .ft-l img{height:24px}
@@ -232,10 +232,15 @@ pre code{background:none;padding:0;color:inherit}
 <a href="../confluence-mapping/"><span>📍</span>Confluence Mapping</a>
 <a href="../intellinQ/"><span>🔗</span>IntellinQ</a>
 <a href="../insights/"><span>📊</span>Insights</a>
-
 <a href="../support/"><span>🛟</span>Support Docs</a>
 </div></div>
-<a href="../customer-support/" class="">Support</a><a href="../trust-centre/">Trust Centre</a></nav>
+<a href="../customer-support/" class="">Support</a>
+<div class="nv-dd"><a href="../trust-centre/" class="">Trust Centre<svg fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></a><div class="nv-dm">
+<a href="../trust-centre/"><span>🔒</span>Privacy Policy</a>
+<a href="../partner-security-policy/"><span>🛡️</span>Partner Security Policy</a>
+<a href="../end-user-agreement/"><span>📜</span>End User Agreement</a>
+</div></div>
+</nav>
 <div class="nv-r">
 <button class="nv-tt" onclick="toggleTheme()" aria-label="Toggle theme">
 <svg class="moon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
@@ -251,15 +256,20 @@ pre code{background:none;padding:0;color:inherit}
 <button class="nv-dr-x" onclick="toggleMenu()"><svg fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button>
 <a href="../home/#features">Features</a>
 <a href="../home/#how">How it works</a>
-<a href="../docs/" class="on">Docs</a>
+<a href="../docs/">Docs</a>
 <div class="nv-dr-sub">
 <a href="../confluence-mapping/">📍 Confluence Mapping</a>
 <a href="../intellinQ/">🔗 IntellinQ</a>
 <a href="../insights/">📊 Insights</a>
-
 <a href="../support/">🛟 Support Docs</a>
 </div>
-<a href="../customer-support/" class="">Support</a><a href="../trust-centre/">Trust Centre</a>
+<a href="../customer-support/">Support</a>
+<a href="../trust-centre/">Trust Centre</a>
+<div class="nv-dr-sub">
+<a href="../trust-centre/">🔒 Privacy Policy</a>
+<a href="../partner-security-policy/">🛡️ Partner Security Policy</a>
+<a href="../end-user-agreement/">📜 End User Agreement</a>
+</div>
 <a href="#" class="nv-dr-cta">View on Marketplace ↗</a>
 <div class="nv-dr-tt"><span>Theme</span><button onclick="toggleTheme()"></button></div>
 </aside><div class="dl"><aside class="dt"><a href="../docs/" class="dt-bk"><svg fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6"/></svg>All Docs</a><div class="dt-h"><span>🛟</span>Support</div><a class="dt-a on" data-p="su-rp" onclick="sp(this)">Generating a support report</a><a class="dt-a" data-p="su-ct" onclick="sp(this)">Contacting support</a></aside><main class="dm"><div class="xp" id="p-su-rp"><h1>Generating a support report</h1><p class="ds">JSON diagnostic report for our support team — privacy-safe.</p>
@@ -277,6 +287,7 @@ pre code{background:none;padding:0;color:inherit}
 <div class="ft-cols">
 <div class="ft-col"><h4>Product</h4><a href="../home/#features">Features</a><a href="../home/#how">How it works</a></div>
 <div class="ft-col"><h4>Resources</h4><a href="../docs/">Documentation</a><a href="../customer-support/">Support</a></div>
+<div class="ft-col"><h4>Trust</h4><a href="../trust-centre/">Privacy Policy</a><a href="../partner-security-policy/">Security Policy</a><a href="../end-user-agreement/">End User Agreement</a></div>
 <div class="ft-col"><h4>Company</h4><a href="../about/">About</a><a href="#">Marketplace ↗</a></div>
 </div>
 </div>
