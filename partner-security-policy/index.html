@@ -1,58 +1,29 @@
-<!DOCTYPE html><html lang="en" data-theme="dark"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>Partner Security Policy — Link-a-Link</title><style>
+<!DOCTYPE html><html lang="en" data-theme="dark"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>Partner Security Policy — Link-a-Link</title>
+<style>
 @import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Sora:wght@300;400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500&display=swap');
-
 :root{
   --nv:#0f2044;--nv-d:#0a1733;
   --g:#c9a84c;--gl:#dbb960;--gd:#a68a3a;
-  --gg:rgba(201,168,76,.12);--ggb:rgba(201,168,76,.3);--ggh:rgba(201,168,76,.18);
+  --gg:rgba(201,168,76,.12);--ggb:rgba(201,168,76,.3);
   --bl:#60a5fa;--em:#34d399;--rs:#f87171;
   --r:8px;--r2:12px;--r3:16px;
   --serif:'DM Serif Display',Georgia,serif;
   --sans:'Sora',-apple-system,BlinkMacSystemFont,sans-serif;
   --mono:'IBM Plex Mono',monospace;
-  --shadow-sm:0 2px 8px rgba(0,0,0,.08);
-  --shadow:0 8px 32px rgba(0,0,0,.12);
-  --shadow-lg:0 16px 48px rgba(0,0,0,.18);
   --trans:.25s cubic-bezier(.4,0,.2,1);
 }
-
-/* DARK THEME (default) */
-:root, [data-theme="dark"]{
-  --bg:#14213d;
-  --bg2:#1c2e52;
-  --bg3:#26396b;
-  --line:rgba(255,255,255,.08);
-  --line2:rgba(255,255,255,.13);
-  --line-h:rgba(201,168,76,.25);
-  --t:#ededed;
-  --t2:rgba(220,220,220,.78);
-  --t3:rgba(200,200,200,.55);
-  --t4:rgba(200,200,200,.35);
-  --code-bg:rgba(0,0,0,.25);
-  --pre-bg:#0a1733;
-  --pill-bg:rgba(255,255,255,.05);
+:root,[data-theme="dark"]{
+  --bg:#14213d;--bg2:#1c2e52;--bg3:#26396b;
+  --line:rgba(255,255,255,.08);--line2:rgba(255,255,255,.13);--line-h:rgba(201,168,76,.25);
+  --t:#ededed;--t2:rgba(220,220,220,.78);--t3:rgba(200,200,200,.55);--t4:rgba(200,200,200,.35);
+  --code-bg:rgba(0,0,0,.25);--pre-bg:#0a1733;--pill-bg:rgba(255,255,255,.05);
 }
-
-/* LIGHT THEME */
 [data-theme="light"]{
-  --bg:#faf8f3;
-  --bg2:#ffffff;
-  --bg3:#f1ecdf;
-  --line:rgba(15,32,68,.1);
-  --line2:rgba(15,32,68,.15);
-  --line-h:rgba(201,168,76,.4);
-  --t:#0f2044;
-  --t2:#3d4a6b;
-  --t3:#6b7280;
-  --t4:#9ca3af;
-  --code-bg:rgba(15,32,68,.05);
-  --pre-bg:#0f2044;
-  --pill-bg:rgba(15,32,68,.04);
-  --shadow-sm:0 2px 8px rgba(15,32,68,.05);
-  --shadow:0 8px 32px rgba(15,32,68,.08);
-  --shadow-lg:0 16px 48px rgba(15,32,68,.12);
+  --bg:#faf8f3;--bg2:#ffffff;--bg3:#f1ecdf;
+  --line:rgba(15,32,68,.1);--line2:rgba(15,32,68,.15);--line-h:rgba(201,168,76,.4);
+  --t:#0f2044;--t2:#3d4a6b;--t3:#6b7280;--t4:#9ca3af;
+  --code-bg:rgba(15,32,68,.05);--pre-bg:#0f2044;--pill-bg:rgba(15,32,68,.04);
 }
-
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth;scroll-padding-top:64px}
 body{font-family:var(--sans);color:var(--t2);background:var(--bg);-webkit-font-smoothing:antialiased;line-height:1.65;overflow-x:hidden;transition:background .3s,color .3s}
@@ -60,12 +31,11 @@ body{font-family:var(--sans);color:var(--t2);background:var(--bg);-webkit-font-s
 img{max-width:100%;display:block;height:auto}
 a{color:var(--g);text-decoration:none}a:hover{color:var(--gl)}
 
-/* ═══ NAV ═══ */
+/* NAV */
 .nv{position:fixed;top:0;left:0;right:0;z-index:200;height:60px;background:var(--nv);border-bottom:1px solid rgba(255,255,255,.06);box-shadow:0 1px 0 var(--gg)}
 .nv-w{max-width:100%;margin:0;padding:0 32px;display:flex;align-items:center;height:100%;gap:8px}
 .nv-l{display:flex;align-items:center;gap:10px;text-decoration:none;margin-right:auto}
-.nv-l img{height:24px}
-.nv-l b{font-size:16px;color:#fff;font-weight:700;letter-spacing:-.3px}
+.nv-l img{height:24px}.nv-l b{font-size:16px;color:#fff;font-weight:700;letter-spacing:-.3px}
 .nv-n{display:flex;gap:2px;align-items:center}
 .nv-n a{color:rgba(255,255,255,.65);font-size:13px;font-weight:500;padding:7px 14px;border-radius:6px;transition:.15s;text-decoration:none}
 .nv-n a:hover,.nv-n a.on{color:#fff;background:rgba(255,255,255,.08)}
@@ -78,139 +48,19 @@ a{color:var(--g);text-decoration:none}a:hover{color:var(--gl)}
 .nv-c{font-size:12px;font-weight:600;color:var(--nv);background:linear-gradient(135deg,var(--g),var(--gd));padding:8px 16px;border-radius:6px;text-decoration:none;transition:.2s;letter-spacing:.2px;box-shadow:0 2px 12px rgba(201,168,76,.3)}
 .nv-c:hover{transform:translateY(-1px);box-shadow:0 4px 20px rgba(201,168,76,.5);color:var(--nv)}
 .nv-mb{display:none;width:36px;height:36px;background:transparent;border:none;color:#fff;cursor:pointer;align-items:center;justify-content:center;border-radius:6px;transition:.2s}
-.nv-mb:hover{background:rgba(255,255,255,.08)}
-.nv-mb svg{width:20px;height:20px}
-
-/* MOBILE DRAWER */
+.nv-mb:hover{background:rgba(255,255,255,.08)}.nv-mb svg{width:20px;height:20px}
 .nv-bk{position:fixed;inset:0;background:rgba(0,0,0,.6);z-index:198;opacity:0;pointer-events:none;transition:.3s;backdrop-filter:blur(4px)}
 .nv-bk.on{opacity:1;pointer-events:auto}
 .nv-dr{position:fixed;top:0;right:0;bottom:0;width:280px;max-width:85vw;background:var(--nv);z-index:199;padding:80px 20px 24px;transform:translateX(100%);transition:transform .35s cubic-bezier(.4,0,.2,1);box-shadow:-8px 0 32px rgba(0,0,0,.3);overflow-y:auto}
 .nv-dr.on{transform:translateX(0)}
-.nv-dr-x{position:absolute;top:18px;right:18px;width:36px;height:36px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.1);color:#fff;border-radius:8px;cursor:pointer;display:flex;align-items:center;justify-content:center}
-.nv-dr-x svg{width:18px;height:18px}
+.nv-dr-x{position:absolute;top:18px;right:18px;width:36px;height:36px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.1);color:#fff;border-radius:8px;cursor:pointer;display:flex;align-items:center;justify-content:center}.nv-dr-x svg{width:18px;height:18px}
 .nv-dr a{display:block;padding:13px 14px;font-size:15px;font-weight:500;color:rgba(255,255,255,.8);border-radius:8px;text-decoration:none;margin-bottom:2px;transition:.15s}
 .nv-dr a:hover,.nv-dr a.on{color:#fff;background:rgba(255,255,255,.08)}
 .nv-dr-cta{display:block;margin-top:14px;padding:13px 16px;text-align:center;font-size:14px;font-weight:700;color:var(--nv)!important;background:linear-gradient(135deg,var(--g),var(--gd));border-radius:8px}
-.nv-dr-tt{display:flex;align-items:center;justify-content:space-between;padding:14px 14px;margin-top:14px;border-top:1px solid rgba(255,255,255,.08);color:rgba(255,255,255,.7);font-size:13px;font-weight:500}
+.nv-dr-tt{display:flex;align-items:center;justify-content:space-between;padding:14px;margin-top:14px;border-top:1px solid rgba(255,255,255,.08);color:rgba(255,255,255,.7);font-size:13px;font-weight:500}
 .nv-dr-tt button{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12);color:#fff;width:60px;height:30px;border-radius:30px;cursor:pointer;position:relative;padding:0}
 .nv-dr-tt button::before{content:'';position:absolute;top:3px;left:3px;width:22px;height:22px;background:var(--g);border-radius:50%;transition:.3s}
 [data-theme="light"] .nv-dr-tt button::before{transform:translateX(30px)}
-
-/* ═══ FOOTER ═══ */
-.ft{background:var(--nv);padding:40px 24px 28px;color:rgba(255,255,255,.7)}
-.ft-w{max-width:100%;margin:0;padding:0 32px}
-.ft-top{display:flex;justify-content:space-between;flex-wrap:wrap;gap:32px;padding-bottom:28px;border-bottom:1px solid rgba(255,255,255,.08)}
-.ft-l{display:flex;align-items:center;gap:10px;text-decoration:none;margin-bottom:10px}
-.ft-l img{height:24px}
-.ft-l b{font-size:16px;color:#fff;font-weight:700;letter-spacing:-.3px}
-.ft-tag{font-size:12px;color:rgba(255,255,255,.5);max-width:280px;line-height:1.6;font-style:italic;font-family:var(--serif)}
-.ft-cols{display:flex;gap:48px;flex-wrap:wrap}
-.ft-col h4{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:var(--g);margin-bottom:12px}
-.ft-col a{display:block;font-size:13px;color:rgba(255,255,255,.6);padding:4px 0;text-decoration:none;transition:.15s}
-.ft-col a:hover{color:var(--g)}
-.ft-bot{padding-top:20px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
-.ft-c{font-size:11px;color:rgba(255,255,255,.4)}
-.ft-c em{font-style:normal;color:var(--g)}
-
-/* ═══ LAYOUT ═══ */
-.mx{max-width:1180px;margin:0 auto;padding:0 24px}
-.sec{padding:88px 0}
-.gline{height:1px;background:linear-gradient(90deg,transparent,var(--ggb),transparent);max-width:1180px;margin:0 auto}
-
-/* ═══ TYPOGRAPHY ═══ */
-.tag{display:inline-flex;align-items:center;gap:10px;font-size:10.5px;font-weight:600;letter-spacing:2.5px;text-transform:uppercase;margin-bottom:14px;color:var(--g)}
-.tag::before{content:'';width:24px;height:1px;background:var(--g)}
-.h2{font-family:var(--serif);font-size:38px;font-weight:400;letter-spacing:-.6px;line-height:1.15;color:var(--t);margin-bottom:14px}
-.h2 em{font-style:italic;color:var(--g)}
-.h3{font-family:var(--serif);font-size:22px;color:var(--t);margin-bottom:8px}
-.lead{font-size:15.5px;color:var(--t2);line-height:1.75;max-width:560px}
-.tc{text-align:center}.tc .lead{margin:0 auto}
-
-/* ═══ BUTTONS ═══ */
-.bt{display:inline-flex;align-items:center;gap:8px;padding:12px 24px;border-radius:var(--r);font-size:13.5px;font-weight:600;text-decoration:none;cursor:pointer;border:none;font-family:var(--sans);transition:var(--trans);letter-spacing:.2px}
-.bt:hover{text-decoration:none;transform:translateY(-1px)}
-.bt svg{width:14px;height:14px}
-.bt-g{background:linear-gradient(135deg,var(--g),var(--gd));color:var(--nv);box-shadow:0 4px 16px rgba(201,168,76,.25)}
-.bt-g:hover{box-shadow:0 8px 28px rgba(201,168,76,.4);color:var(--nv)}
-.bt-o{background:transparent;color:var(--t);border:1px solid var(--line2)}
-.bt-o:hover{border-color:var(--g);color:var(--g)}
-
-/* ═══ CARDS ═══ */
-.cd{background:var(--bg2);border:1px solid var(--line);border-radius:var(--r3);transition:var(--trans);box-shadow:var(--shadow-sm)}
-.cd:hover{border-color:var(--line-h);box-shadow:var(--shadow);transform:translateY(-2px)}
-
-/* ═══ SCREENSHOTS ═══ */
-.sh{border-radius:var(--r2);overflow:hidden;border:1px solid var(--line2);box-shadow:var(--shadow)}
-.sh img{width:100%;display:block}
-.sh-c{padding:9px 14px;background:var(--bg2);border-top:1px solid var(--line);font-size:11px;color:var(--t3);font-weight:500}
-
-/* ═══ MOBILE ═══ */
-@media(max-width:900px){
-  .nv-n,.nv-r .nv-c{display:none}
-  .nv-mb{display:flex}
-  .nv-r{margin-left:0}
-  .sec{padding:56px 0}
-  .h2{font-size:28px}
-  .h3{font-size:18px}
-  .mx{padding:0 20px}
-}
-@media(max-width:600px){
-  .h2{font-size:24px}
-  .lead{font-size:14px}
-  .bt{padding:11px 20px;font-size:13px}
-  .tag{font-size:10px;letter-spacing:2px}
-  .ft-top{flex-direction:column;gap:24px}
-  .ft-cols{gap:32px;width:100%}
-}
-
-
-.dl{display:flex;padding-top:60px;min-height:100vh}
-.dt{width:270px;min-width:270px;position:sticky;top:60px;height:calc(100vh - 60px);background:var(--bg2);border-right:1px solid var(--line);overflow-y:auto;padding:24px 0 40px;flex-shrink:0}
-.dt::-webkit-scrollbar{width:4px}.dt::-webkit-scrollbar-thumb{background:var(--line2);border-radius:4px}
-.dt-bk{display:flex;align-items:center;gap:6px;padding:0 20px 14px;font-size:11px;font-weight:600;color:var(--t3);text-decoration:none;text-transform:uppercase;letter-spacing:.5px}
-.dt-bk:hover{color:var(--g);text-decoration:none}
-.dt-bk svg{width:12px;height:12px}
-.dt-h{padding:0 20px 14px;margin-bottom:10px;border-bottom:1px solid var(--line);font-family:var(--serif);font-size:18px;color:var(--t);display:flex;align-items:center;gap:8px}
-.dt-h span{font-size:20px}
-.dt-a{display:block;padding:7px 20px 7px 28px;font-size:13px;color:var(--t3);text-decoration:none;cursor:pointer;transition:.12s;border-left:2px solid transparent;line-height:1.45}
-.dt-a:hover{color:var(--t);background:var(--pill-bg);text-decoration:none}
-.dt-a.on{color:var(--g);font-weight:600;border-left-color:var(--g);background:var(--gg)}
-.dt-sep{height:1px;background:var(--line);margin:10px 20px}
-.dt-sub{padding:10px 20px 4px 28px;font-size:9.5px;font-weight:700;text-transform:uppercase;letter-spacing:1.3px;color:var(--t4)}
-.dm{flex:1;padding:36px 48px 64px;max-width:780px;min-width:0}
-.dm h1{font-family:var(--serif);font-size:32px;color:var(--t);margin-bottom:8px;letter-spacing:-.4px;line-height:1.15}
-.dm .ds{font-size:15px;color:var(--t2);margin-bottom:28px;line-height:1.7}
-.dm h2{font-family:var(--serif);font-size:20px;color:var(--g);margin:32px 0 10px;padding-bottom:8px;border-bottom:1px solid var(--line)}
-.dm h3{font-size:14px;font-weight:700;color:var(--t);margin:20px 0 8px}
-.dm p{font-size:14px;color:var(--t2);line-height:1.75;margin-bottom:12px}
-.dm ul,.dm ol{margin:0 0 14px 18px;font-size:14px;color:var(--t2);line-height:1.75}
-.dm li{margin-bottom:4px}
-.dm strong{color:var(--t)}
-.dm a{color:var(--g)}
-.dm .sh{margin:18px 0}
-.nt{border-radius:var(--r);padding:14px 18px;margin:14px 0;font-size:13px;line-height:1.7;color:var(--t2);background:var(--bg2);border:1px solid var(--line)}
-.nt-l{font-size:9.5px;font-weight:700;text-transform:uppercase;letter-spacing:.8px;margin-bottom:4px}
-.nt-i{border-left:3px solid var(--bl)}.nt-i .nt-l{color:var(--bl)}
-.nt-w{border-left:3px solid var(--g)}.nt-w .nt-l{color:var(--g)}
-.nt-s{border-left:3px solid var(--em)}.nt-s .nt-l{color:var(--em)}
-.nt-d{border-left:3px solid var(--rs)}.nt-d .nt-l{color:var(--rs)}
-code{font-family:var(--mono);font-size:12.5px;background:var(--code-bg);padding:2px 6px;border-radius:4px;color:var(--g)}
-pre{background:var(--pre-bg);border:1px solid var(--line);color:#c3cee0;padding:16px 18px;border-radius:var(--r);overflow-x:auto;margin:12px 0 18px;font-family:var(--mono);font-size:12px;line-height:1.65}
-pre code{background:none;padding:0;color:inherit}
-.tb2{width:100%;border-collapse:collapse;margin:12px 0 18px;font-size:13px;border:1px solid var(--line2);border-radius:var(--r);overflow:hidden}
-.tb2 th{text-align:left;padding:8px 12px;background:var(--bg3);font-weight:700;font-size:10px;text-transform:uppercase;letter-spacing:.5px;color:var(--g);border-bottom:1px solid var(--line2)}
-.tb2 td{padding:8px 12px;border-bottom:1px solid var(--line);color:var(--t2)}
-.tb2 tr:last-child td{border-bottom:none}
-.dm-mb{display:none;position:fixed;bottom:20px;right:20px;width:48px;height:48px;border-radius:50%;background:var(--g);color:var(--nv);border:none;cursor:pointer;align-items:center;justify-content:center;box-shadow:0 4px 16px rgba(0,0,0,.3);z-index:100}
-.dm-mb svg{width:20px;height:20px}
-@media(max-width:900px){
-  .dt{position:fixed;left:0;top:60px;bottom:0;transform:translateX(-100%);transition:transform .3s;z-index:150;width:280px}
-  .dt.on{transform:translateX(0)}
-  .dm{padding:24px 20px 80px;max-width:100%}
-  .dm h1{font-size:26px}
-  .dm-mb{display:flex}
-}
-
 .nv-dd{position:relative}
 .nv-dd>a{display:flex;align-items:center;gap:4px;cursor:pointer}
 .nv-dd>a svg{width:10px;height:10px;opacity:.55;transition:.2s}
@@ -223,18 +73,74 @@ pre code{background:none;padding:0;color:inherit}
 .nv-dm a span{font-size:15px}
 .nv-dr-sub{padding:4px 0 12px 14px;margin-bottom:4px;border-left:2px solid rgba(255,255,255,.1);margin-left:14px}
 .nv-dr-sub a{padding:9px 14px!important;font-size:13.5px!important}
-</style></head><body><header class="nv"><div class="nv-w">
+
+/* FOOTER */
+.ft{background:var(--nv);padding:40px 24px 28px;color:rgba(255,255,255,.7)}
+.ft-w{max-width:100%;margin:0;padding:0 32px}
+.ft-top{display:flex;justify-content:space-between;flex-wrap:wrap;gap:32px;padding-bottom:28px;border-bottom:1px solid rgba(255,255,255,.08)}
+.ft-l{display:flex;align-items:center;gap:10px;text-decoration:none;margin-bottom:10px}
+.ft-l img{height:24px}.ft-l b{font-size:16px;color:#fff;font-weight:700;letter-spacing:-.3px}
+.ft-tag{font-size:12px;color:rgba(255,255,255,.5);max-width:280px;line-height:1.6;font-style:italic;font-family:var(--serif)}
+.ft-cols{display:flex;gap:48px;flex-wrap:wrap}
+.ft-col h4{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:var(--g);margin-bottom:12px}
+.ft-col a{display:block;font-size:13px;color:rgba(255,255,255,.6);padding:4px 0;text-decoration:none;transition:.15s}
+.ft-col a:hover{color:var(--g)}
+.ft-bot{padding-top:20px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
+.ft-c{font-size:11px;color:rgba(255,255,255,.4)}.ft-c em{font-style:normal;color:var(--g)}
+
+/* SIDEBAR + CONTENT LAYOUT */
+.dl{display:flex;padding-top:60px;min-height:100vh}
+.dt{width:270px;min-width:270px;position:sticky;top:60px;height:calc(100vh - 60px);background:var(--bg2);border-right:1px solid var(--line);overflow-y:auto;padding:24px 0 40px;flex-shrink:0}
+.dt::-webkit-scrollbar{width:4px}.dt::-webkit-scrollbar-thumb{background:var(--line2);border-radius:4px}
+.dt-bk{display:flex;align-items:center;gap:6px;padding:0 20px 14px;font-size:11px;font-weight:600;color:var(--t3);text-decoration:none;text-transform:uppercase;letter-spacing:.5px}
+.dt-bk:hover{color:var(--g);text-decoration:none}.dt-bk svg{width:12px;height:12px}
+.dt-h{padding:0 20px 14px;margin-bottom:10px;border-bottom:1px solid var(--line);font-family:var(--serif);font-size:18px;color:var(--t);display:flex;align-items:center;gap:8px}.dt-h span{font-size:20px}
+.dt-a{display:block;padding:7px 20px 7px 28px;font-size:13px;color:var(--t3);text-decoration:none;cursor:pointer;transition:.12s;border-left:2px solid transparent;line-height:1.45}
+.dt-a:hover{color:var(--t);background:var(--pill-bg);text-decoration:none}
+.dt-a.on{color:var(--g);font-weight:600;border-left-color:var(--g);background:var(--gg)}
+.dt-sep{height:1px;background:var(--line);margin:10px 20px}
+.dt-sub{padding:10px 20px 4px 28px;font-size:9.5px;font-weight:700;text-transform:uppercase;letter-spacing:1.3px;color:var(--t4)}
+.dm{flex:1;padding:36px 48px 64px;max-width:780px;min-width:0}
+.dm h1{font-family:var(--serif);font-size:32px;color:var(--t);margin-bottom:8px;letter-spacing:-.4px;line-height:1.15}
+.dm .ds{font-size:15px;color:var(--t2);margin-bottom:28px;line-height:1.7}
+.dm h2{font-family:var(--serif);font-size:20px;color:var(--g);margin:32px 0 10px;padding-bottom:8px;border-bottom:1px solid var(--line)}
+.dm p{font-size:14px;color:var(--t2);line-height:1.75;margin-bottom:12px}
+.dm ul,.dm ol{margin:0 0 14px 18px;font-size:14px;color:var(--t2);line-height:1.75}.dm li{margin-bottom:4px}
+.dm strong{color:var(--t)}.dm a{color:var(--g)}
+.nt{border-radius:var(--r);padding:14px 18px;margin:14px 0;font-size:13px;line-height:1.7;color:var(--t2);background:var(--bg2);border:1px solid var(--line)}
+.nt-l{font-size:9.5px;font-weight:700;text-transform:uppercase;letter-spacing:.8px;margin-bottom:4px}
+.nt-i{border-left:3px solid var(--bl)}.nt-i .nt-l{color:var(--bl)}
+.nt-w{border-left:3px solid var(--g)}.nt-w .nt-l{color:var(--g)}
+.nt-s{border-left:3px solid var(--em)}.nt-s .nt-l{color:var(--em)}
+.nt-d{border-left:3px solid var(--rs)}.nt-d .nt-l{color:var(--rs)}
+code{font-family:var(--mono);font-size:12.5px;background:var(--code-bg);padding:2px 6px;border-radius:4px;color:var(--g)}
+.tb2{width:100%;border-collapse:collapse;margin:12px 0 18px;font-size:13px;border:1px solid var(--line2);border-radius:var(--r);overflow:hidden}
+.tb2 th{text-align:left;padding:8px 12px;background:var(--bg3);font-weight:700;font-size:10px;text-transform:uppercase;letter-spacing:.5px;color:var(--g);border-bottom:1px solid var(--line2)}
+.tb2 td{padding:8px 12px;border-bottom:1px solid var(--line);color:var(--t2)}.tb2 tr:last-child td{border-bottom:none}
+.dm-mb{display:none;position:fixed;bottom:20px;right:20px;width:48px;height:48px;border-radius:50%;background:var(--g);color:var(--nv);border:none;cursor:pointer;align-items:center;justify-content:center;box-shadow:0 4px 16px rgba(0,0,0,.3);z-index:100}.dm-mb svg{width:20px;height:20px}
+
+@media(max-width:900px){
+  .nv-n,.nv-r .nv-c{display:none}.nv-mb{display:flex}.nv-r{margin-left:0}
+  .dt{position:fixed;left:0;top:60px;bottom:0;transform:translateX(-100%);transition:transform .3s;z-index:150;width:280px}
+  .dt.on{transform:translateX(0)}
+  .dm{padding:24px 20px 80px;max-width:100%}.dm h1{font-size:26px}
+  .dm-mb{display:flex}
+}
+@media(max-width:600px){.ft-top{flex-direction:column;gap:24px}.ft-cols{gap:32px;width:100%}}
+</style></head>
+<body>
+<header class="nv"><div class="nv-w">
 <a href="../home/" class="nv-l"><img src="data:image/png;base64,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" alt=""><b>Link-a-Link</b></a>
 <nav class="nv-n">
-<a href="../home/#features" class="">Features</a>
-<a href="../home/#how" class="">How it works</a>
-<div class="nv-dd"><a href="../docs/" class="">Docs<svg fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></a><div class="nv-dm">
+<a href="../home/#features">Features</a>
+<a href="../home/#how">How it works</a>
+<div class="nv-dd"><a href="../docs/">Docs<svg fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></a><div class="nv-dm">
 <a href="../confluence-mapping/"><span>📍</span>Confluence Mapping</a>
 <a href="../intellinQ/"><span>🔗</span>IntellinQ</a>
 <a href="../insights/"><span>📊</span>Insights</a>
 <a href="../support/"><span>🛟</span>Support Docs</a>
 </div></div>
-<a href="../customer-support/" class="">Support</a>
+<a href="../customer-support/">Support</a>
 <div class="nv-dd"><a href="../trust-centre/" class="on">Trust Centre<svg fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></a><div class="nv-dm">
 <a href="../trust-centre/"><span>🔒</span>Privacy Policy</a>
 <a href="../partner-security-policy/"><span>🛡️</span>Partner Security Policy</a>
@@ -247,9 +153,7 @@ pre code{background:none;padding:0;color:inherit}
 <svg class="sun" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
 </button>
 <a href="#" class="nv-c">View on Marketplace ↗</a>
-<button class="nv-mb" onclick="toggleMenu()" aria-label="Menu">
-<svg fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
-</button>
+<button class="nv-mb" onclick="toggleMenu()" aria-label="Menu"><svg fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg></button>
 </div></div></header>
 <div class="nv-bk" id="bk" onclick="toggleMenu()"></div>
 <aside class="nv-dr" id="dr">
@@ -272,211 +176,46 @@ pre code{background:none;padding:0;color:inherit}
 </div>
 <a href="#" class="nv-dr-cta">View on Marketplace ↗</a>
 <div class="nv-dr-tt"><span>Theme</span><button onclick="toggleTheme()"></button></div>
-</aside><div class="dl"><aside class="dt"><a href="../home/" class="dt-bk"><svg fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6"/></svg>Back to home</a><div class="dt-h"><span>🛡️</span>Partner Security Policy</div><a class="dt-a on" data-p="sec-overview" onclick="sp(this)">Overview</a><div class="dt-sep"></div><div class="dt-sub">Security Controls</div><a class="dt-a" data-p="sec-infra" onclick="sp(this)">Infrastructure Security</a><a class="dt-a" data-p="sec-access" onclick="sp(this)">Access Control</a><a class="dt-a" data-p="sec-data" onclick="sp(this)">Data Protection</a><a class="dt-a" data-p="sec-monitoring" onclick="sp(this)">Monitoring & Logging</a><div class="dt-sep"></div><div class="dt-sub">Vulnerability Management</div><a class="dt-a" data-p="sec-scanning" onclick="sp(this)">Vulnerability Scanning</a><a class="dt-a" data-p="sec-bugfix" onclick="sp(this)">Bug Fix Policy</a><a class="dt-a" data-p="sec-reporting" onclick="sp(this)">Reporting a Vulnerability</a><div class="dt-sep"></div><div class="dt-sub">Incident Response</div><a class="dt-a" data-p="sec-plan" onclick="sp(this)">Incident Response Plan</a><a class="dt-a" data-p="sec-notification" onclick="sp(this)">Customer Notification</a><div class="dt-sep"></div><div class="dt-sub">Development</div><a class="dt-a" data-p="sec-dev" onclick="sp(this)">Secure Development</a><a class="dt-a" data-p="sec-workstation" onclick="sp(this)">Workstation Security</a><div class="dt-sep"></div><a class="dt-a" data-p="sec-contact" onclick="sp(this)">Security Contact</a></aside><main class="dm"><div class="xp" id="p-sec-overview"><h1>Partner Security Policy</h1><p class="ds">How Agilva Solutions secures Link-a-Link, handles vulnerabilities, and responds to security incidents.</p>
-<div class="nt nt-i"><div class="nt-l">Atlassian Marketplace Partner</div><p style="margin:0">This policy is published in accordance with Atlassian's Marketplace Partner Security requirements and covers the security controls, vulnerability management processes, and incident response procedures for the Link-a-Link plugin.</p></div>
-<h2>Architecture overview</h2>
-<p>Link-a-Link is built exclusively on the <strong>Atlassian Forge platform</strong> — Atlassian's serverless, managed runtime for Confluence and Jira apps. The plugin does not operate any independent servers, virtual machines, or databases. All code executes within Atlassian's Forge sandbox with strict tenant isolation enforced at the platform level.</p>
-<p>URL mapping data is stored in <strong>AWS S3 (eu-west-1, Ireland)</strong> with AES-256 encryption at rest and TLS 1.2+ in transit. IntellinQ configurations and plugin settings are stored in <strong>Forge Storage</strong>, managed entirely by Atlassian.</p>
-<h2>Key security facts</h2>
-<table class="tb2">
-<tr><th>Area</th><th>Summary</th></tr>
-<tr><td>Hosting</td><td>Atlassian Forge (serverless, Atlassian-managed)</td></tr>
-<tr><td>Data storage</td><td>AWS S3 (eu-west-1) + Atlassian Forge Storage</td></tr>
-<tr><td>Encryption at rest</td><td>AES-256 (SSE-S3)</td></tr>
-<tr><td>Encryption in transit</td><td>TLS 1.2+</td></tr>
-<tr><td>Personal data collected</td><td>None — no names, emails, account IDs, or search queries</td></tr>
-<tr><td>Tenant isolation</td><td>Application-layer + Forge platform-layer + S3 IAM</td></tr>
-<tr><td>Security contact</td><td><a href="mailto:privacy@agilva.com">privacy@agilva.com</a></td></tr>
-</table>
-<p style="margin-top:24px"><em>Version 1.0 · Effective date: 08 April 2026</em></p></div><div class="xp" id="p-sec-infra" style="display:none"><h1>Infrastructure Security</h1><p class="ds">How the infrastructure running Link-a-Link is secured.</p>
-<h2>Forge sandbox</h2>
-<p>All resolver code runs inside Atlassian's isolated Forge runtime, which enforces strict security boundaries between tenants and between the app and the wider internet. Agilva Solutions does not operate any servers, VMs, or databases.</p>
-<h2>AWS S3 storage</h2>
-<ul>
-<li><strong>Region:</strong> eu-west-1 (Ireland, European Union)</li>
-<li><strong>Bucket:</strong> <code>link-a-link-storage-eu</code> — private, no public access</li>
-<li><strong>Encryption at rest:</strong> AES-256 server-side encryption (SSE-S3)</li>
-<li><strong>Encryption in transit:</strong> TLS 1.2+</li>
-<li><strong>Backup data:</strong> Also encrypted at rest</li>
-</ul>
-<h2>Lambda processing</h2>
-<p>CSV files are processed by <code>link-a-link-processor</code> (Lambda, eu-west-1) using least-privilege IAM roles with only the minimum S3 permissions required (GetObject, PutObject on the tenant prefix). No broad S3 access is granted.</p>
-<h2>Upload mechanism</h2>
-<p>CSV uploads use <strong>time-limited presigned S3 URLs</strong> with a 15-minute expiry. These URLs grant access only to the specific tenant's prefix — no additional bucket access is possible.</p></div><div class="xp" id="p-sec-access" style="display:none"><h1>Access Control</h1><p class="ds">How access to systems and data is controlled.</p>
-<h2>Tenant isolation</h2>
-<p>Every workspace that installs Link-a-Link receives a completely isolated data environment. Isolation is enforced at three independent layers:</p>
-<ul>
-<li><strong>Application layer:</strong> Every Forge Storage key is namespaced with the workspace's unique <code>tenantId</code>. No query can read across tenant boundaries.</li>
-<li><strong>Platform layer:</strong> Forge enforces runtime-level isolation between app instances for different tenants — they cannot share storage, memory, or context.</li>
-<li><strong>S3 layer:</strong> Object keys are prefixed with <code>tenantId</code> and IAM policies restrict access to the Lambda function with the correct context.</li>
-</ul>
-<h2>Forge Context Token (FCT)</h2>
-<p>Every resolver invocation is validated against Atlassian's FCT mechanism, ensuring the caller is authenticated to the correct workspace before any storage read or write operation takes place.</p>
-<h2>No credentials in code</h2>
-<p>AWS credentials are stored as Forge environment variables (production) and never hardcoded in source code.</p>
-<h2>Admin controls</h2>
-<p>Only Confluence workspace administrators can upload mapping data, configure IntellinQ systems, and initiate data deletion. End users have read-only search access.</p></div><div class="xp" id="p-sec-data" style="display:none"><h1>Data Protection</h1><p class="ds">How we protect the data Link-a-Link handles.</p>
-<h2>No personal data</h2>
-<p>Link-a-Link is deliberately designed to avoid collecting personal data. The plugin <strong>never</strong> collects, stores, or transmits:</p>
-<ul>
-<li>User account IDs, names, or email addresses</li>
-<li>Search queries typed by users</li>
-<li>Confluence page content, titles, or attachments</li>
-<li>Passwords, tokens, or session identifiers</li>
-<li>Browser information, IP addresses, or device fingerprints</li>
-<li>Behavioural analytics of any kind</li>
-</ul>
-<h2>What we do store</h2>
-<p>Only admin-uploaded and admin-configured data:</p>
-<ul>
-<li><strong>URL mapping index</strong> — old DC URLs/PageIDs mapped to new Cloud URLs (no page content, no personal identifiers)</li>
-<li><strong>IntellinQ configurations</strong> — system names, URL prefixes, base URLs</li>
-<li><strong>Aggregate search counters</strong> — integers only, no query strings</li>
-<li><strong>Technical error logs</strong> — error type and message only, max 30 entries, FIFO rotation</li>
-</ul>
-<h2>Admin-initiated deletion</h2>
-<p>Administrators can permanently delete all mapping data at any time from the settings panel. Deletion is immediate, irrecoverable, and audit-logged. There is no backup, soft-delete, or archival copy retained.</p>
-<h2>Support reports</h2>
-<p>The built-in support report feature generates diagnostic JSON containing <strong>only aggregate counts and technical metadata</strong> — never personal data, search queries, or page content.</p></div><div class="xp" id="p-sec-monitoring" style="display:none"><h1>Monitoring & Logging</h1><p class="ds">What we log, what we don't, and how we monitor.</p>
-<h2>What we log</h2>
-<ul>
-<li>Upload timestamps and processing status</li>
-<li>Aggregate search counters (integers only)</li>
-<li>Technical error events (type, message, component name)</li>
-<li>Data deletion events (timestamp and action type only)</li>
-</ul>
-<h2>What we do not log</h2>
-<ul>
-<li>Search queries entered by users</li>
-<li>User account IDs or names</li>
-<li>Credentials, API tokens, or passwords</li>
-<li>Page content or titles</li>
-<li>IP addresses or device information</li>
-</ul>
-<div class="nt nt-i"><div class="nt-l">No sensitive data in logs</div><p style="margin:0">No credentials, API/access tokens, passwords, search queries, or personal information are ever written to any log — whether Forge logs, CloudWatch, or otherwise.</p></div>
-<h2>Log retention</h2>
-<p>Error event logs are retained with a maximum of 30 entries per tenant using FIFO rotation. Audit log entries are retained indefinitely (max 30 per tenant). All logs are purged on app uninstall per Atlassian's Forge platform policies.</p></div><div class="xp" id="p-sec-scanning" style="display:none"><h1>Vulnerability Scanning</h1><p class="ds">How we identify vulnerabilities in our code and dependencies.</p>
-<h2>Software Composition Analysis (SCA)</h2>
-<p>We perform <strong>SCA — dependency and open-source library scans</strong> — to identify known vulnerabilities in our project dependencies. Scan results are reviewed as part of our release process. No release proceeds with known critical or high-severity vulnerabilities in dependencies.</p>
-<h2>Library management</h2>
-<p>We ensure the libraries and frameworks used in Link-a-Link are <strong>free from known vulnerabilities</strong> before including them. Dependencies are regularly reviewed and updated.</p>
-<h2>OWASP Top 10</h2>
-<p>We have reviewed and actively design against the <strong>OWASP Top 10</strong> most common security risks when building our app.</p></div> <h1>Bug Bounty Program</h1><p class="ds">Link-a-Link participates in the Atlassian Marketplace security bug bounty program.</p>
-<p>Security researchers who identify vulnerabilities in the Link-a-Link plugin can report them through <strong>Atlassian's official Marketplace Bug Bounty Program</strong>.</p>
-<p>Details of the program, eligibility, and scope are available at:<br>
-<a href="https://developer.atlassian.com/platform/marketplace/marketplace-security-bug-bounty-program/">Atlassian Marketplace Security Bug Bounty Program</a></p>
-<div class="nt nt-s"><div class="nt-l">Responsible disclosure</div><p style="margin:0">We support responsible disclosure. If you discover a potential security issue, please report it via the bug bounty program or by contacting <a href="mailto:privacy@agilva.com">privacy@agilva.com</a>. We will acknowledge receipt within 2 business days.</p></div>  style="display:none"><h1>Bug Fix Policy</h1><p class="ds">How we handle security bugs when they're found.</p>
-<p>We follow <strong>Atlassian's Marketplace security bug-fix policy</strong>, which defines response timelines based on vulnerability severity.</p>
-<p>Our bug-fix policy details are aligned with:<br>
-<a href="https://developer.atlassian.com/platform/marketplace/security-bugfix-policy/">Atlassian Marketplace Security Bug Fix Policy</a></p>
-<h2>Our commitments</h2>
-<ul>
-<li>Critical vulnerabilities are triaged immediately upon report</li>
-<li>Remediation follows Atlassian's required timelines for each severity level</li>
-<li>Patches are deployed through the Atlassian Forge platform</li>
-<li>Affected customers and Atlassian are notified following the vulnerability notification template</li>
-</ul></div><div class="xp" id="p-sec-reporting" style="display:none"><h1>Reporting a Vulnerability</h1><p class="ds">How to report a security issue in Link-a-Link.</p>
-<h2>How to report</h2>
-<ol>
-<li><strong>Via Atlassian's Bug Bounty Program</strong> — for issues covered by the Marketplace Bug Bounty scope, submit through <a href="https://developer.atlassian.com/platform/marketplace/marketplace-security-bug-bounty-program/">Atlassian's official program</a></li>
-<li><strong>Via email</strong> — for all other security concerns, contact <a href="mailto:privacy@agilva.com">privacy@agilva.com</a></li>
-</ol>
-<h2>What to include</h2>
-<ul>
-<li>A clear description of the vulnerability</li>
-<li>Steps to reproduce (if applicable)</li>
-<li>The potential impact or severity</li>
-<li>Any supporting evidence (screenshots, logs)</li>
-</ul>
-<h2>Our response</h2>
-<ul>
-<li><strong>Acknowledgement:</strong> within 2 business days</li>
-<li><strong>Initial assessment:</strong> within 5 business days</li>
-<li><strong>Status update:</strong> within 10 business days</li>
-<li><strong>Remediation:</strong> according to Atlassian's severity-based timelines</li>
-</ul>
-<div class="nt nt-w"><div class="nt-l">Please do not</div><p style="margin:0">Please do not publicly disclose a vulnerability before we have had a reasonable opportunity to investigate and remediate. We are committed to working with researchers in good faith.</p></div></div><div class="xp" id="p-sec-plan" style="display:none"><h1>Incident Response Plan</h1><p class="ds">What happens when a security incident is detected.</p>
-<p>We maintain a <strong>comprehensive incident response plan</strong> aligned with Atlassian's published guidelines for Marketplace partners:</p>
-<p><a href="https://developer.atlassian.com/platform/marketplace/preparing-for-a-security-incident/">Atlassian — Preparing for a Security Incident</a><br>
-<a href="https://developer.atlassian.com/platform/marketplace/app-security-incident-management-guidelines/">Atlassian — App Security Incident Management Guidelines</a></p>
-<h2>Incident response steps</h2>
-<ol>
-<li><strong>Detection & containment</strong> — the affected component is isolated to prevent further impact</li>
-<li><strong>Assessment</strong> — scope, severity, root cause, and potentially affected tenants are identified</li>
-<li><strong>Notification</strong> — Atlassian and affected customers are notified following Atlassian's Security Incident Notification guide</li>
-<li><strong>Remediation</strong> — the root cause is fixed and a patch is deployed through the Forge platform</li>
-<li><strong>Post-incident review</strong> — lessons learned are documented and controls are updated accordingly</li>
-</ol>
-<div class="nt nt-i"><div class="nt-l">Multi-tenant consideration</div><p style="margin:0">Because Link-a-Link enforces strict tenant isolation at three independent layers (application, platform, and S3), a security incident affecting one workspace's data cannot propagate to other workspaces.</p></div></div><div class="xp" id="p-sec-notification" style="display:none"><h1>Customer Notification</h1><p class="ds">How we communicate security incidents to affected customers.</p>
-<p>In the event of a critical vulnerability or security incident affecting Link-a-Link, we will:</p>
-<ol>
-<li><strong>Notify Atlassian</strong> — immediately, following Atlassian's vulnerability notification requirements</li>
-<li><strong>Notify affected customers</strong> — via the Atlassian Marketplace listing, in-app notification where possible, and email to registered admin contacts</li>
-<li><strong>Publish a post-incident report</strong> — describing the incident, its impact, and the remediation steps taken</li>
-</ol>
-<p>Our notification process follows Atlassian's published template:<br>
-<a href="https://developer.atlassian.com/platform/marketplace/app-vulnerability-notification-template/">Atlassian — App Vulnerability Notification Template</a></p>
-<h2>Communication channels</h2>
-<ul>
-<li>Atlassian Marketplace listing (public notice)</li>
-<li>Email to registered workspace admin contacts (where available)</li>
-<li>Direct contact at <a href="mailto:privacy@agilva.com">privacy@agilva.com</a></li>
-</ul></div><div class="xp" id="p-sec-dev" style="display:none"><h1>Secure Development</h1><p class="ds">How we build and release Link-a-Link safely.</p>
-<h2>Source control security</h2>
-<ul>
-<li><strong>Multi-Factor Authentication (MFA)</strong> required for all access to source code management</li>
-<li><strong>Pull requests required</strong> to push any change to production code</li>
-<li><strong>Peer approval required</strong> on every pull request before merge</li>
-</ul>
-<h2>Secure coding practices</h2>
-<ul>
-<li><strong>OWASP Top 10</strong> reviewed and actively designed against</li>
-<li><strong>Security testing</strong> integrated into our development process</li>
-<li>Libraries and frameworks verified <strong>free from known vulnerabilities</strong> before use</li>
-<li><strong>API keys and secrets</strong> managed and rotated periodically</li>
-<li><strong>No credentials in code</strong> — all secrets stored as Forge environment variables</li>
-</ul>
-<h2>Release process</h2>
-<ul>
-<li>SCA dependency scans run before every release</li>
-<li>Pull request review includes security review checklist</li>
-<li>Deployments are made through the Atlassian Forge platform</li>
-</ul></div><div class="xp" id="p-sec-workstation" style="display:none"><h1>Workstation Security</h1><p class="ds">How developer devices are secured.</p>
-<ul>
-<li><strong>Anti-Virus / Endpoint protection</strong> deployed on all development workstations</li>
-<li><strong>Full disk encryption (FDE)</strong> enabled on all development workstations</li>
-<li><strong>Patch management</strong> process in place to keep operating systems and software up to date</li>
-<li><strong>Multi-Factor Authentication (MFA)</strong> required for all accounts accessing company systems</li>
-<li><strong>Strong password policy</strong> enforced across all company accounts</li>
-</ul></div><div class="xp" id="p-sec-contact" style="display:none"><h1>Security Contact</h1><p class="ds">How to reach us about security matters.</p>
-<table class="tb2">
-<tr><td><strong>Security contact</strong></td><td><a href="mailto:privacy@agilva.com">privacy@agilva.com</a></td></tr>
-<tr><td><strong>Bug bounty</strong></td><td><a href="https://developer.atlassian.com/platform/marketplace/marketplace-security-bug-bounty-program/">Atlassian Marketplace Bug Bounty Program</a></td></tr>
-<tr><td><strong>Ecosystem profile</strong></td><td>Registered at ecosystem.atlassian.net</td></tr>
-<tr><td><strong>Organisation</strong></td><td>Agilva Solutions</td></tr>
-<tr><td><strong>Website</strong></td><td><a href="https://link-a-link.in">https://link-a-link.in</a></td></tr>
-</table>
-<p style="margin-top:20px"><em>This Partner Security Policy is published in accordance with Atlassian Marketplace requirements. Version 1.0 · Effective date: 08 April 2026</em></p></div></main></div><button class="dm-mb" onclick="toggleSb()" aria-label="Menu"><svg fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg></button><footer class="ft"><div class="ft-w">
-<div class="ft-top">
-<div>
+</aside>
+<div class="dl"><aside class="dt"><a href="../home/" class="dt-bk"><svg fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6"/></svg>Back to home</a>
+<div class="dt-h"><span>🛡️</span>Partner Security Policy</div>
+<a class="dt-a on" data-p="sec-overview" onclick="sp(this)">Overview</a>
+<div class="dt-sep"></div>
+<div class="dt-sub">Security Controls</div>
+<a class="dt-a" data-p="sec-infra" onclick="sp(this)">Infrastructure Security</a>
+<a class="dt-a" data-p="sec-access" onclick="sp(this)">Access Control</a>
+<a class="dt-a" data-p="sec-data" onclick="sp(this)">Data Protection</a>
+<a class="dt-a" data-p="sec-monitoring" onclick="sp(this)">Monitoring & Logging</a>
+<div class="dt-sep"></div>
+<div class="dt-sub">Vulnerability Management</div>
+<a class="dt-a" data-p="sec-scanning" onclick="sp(this)">Vulnerability Scanning</a>
+<a class="dt-a" data-p="sec-bugfix" onclick="sp(this)">Bug Fix Policy</a>
+<a class="dt-a" data-p="sec-reporting" onclick="sp(this)">Reporting a Vulnerability</a>
+<div class="dt-sep"></div>
+<div class="dt-sub">Incident Response</div>
+<a class="dt-a" data-p="sec-plan" onclick="sp(this)">Incident Response Plan</a>
+<a class="dt-a" data-p="sec-notification" onclick="sp(this)">Customer Notification</a>
+<div class="dt-sep"></div>
+<div class="dt-sub">Development</div>
+<a class="dt-a" data-p="sec-dev" onclick="sp(this)">Secure Development</a>
+<a class="dt-a" data-p="sec-workstation" onclick="sp(this)">Workstation Security</a>
+<div class="dt-sep"></div>
+<a class="dt-a" data-p="sec-contact" onclick="sp(this)">Security Contact</a></aside><main class="dm"><div class="xp" id="p-sec-overview"><h1>Partner Security Policy</h1><p class="ds">How Agilva Solutions secures Link-a-Link, handles vulnerabilities, and responds to security incidents.</p><div class="nt nt-i"><div class="nt-l">Atlassian Marketplace Partner</div><p style="margin:0">This policy is published in accordance with Atlassian's Marketplace Partner Security requirements and covers the security controls, vulnerability management processes, and incident response procedures for the Link-a-Link plugin.</p></div><h2>Architecture overview</h2><p>Link-a-Link is built exclusively on the <strong>Atlassian Forge platform</strong> — Atlassian's serverless, managed runtime for Confluence and Jira apps. The plugin does not operate any independent servers, virtual machines, or databases. All code executes within Atlassian's Forge sandbox with strict tenant isolation enforced at the platform level.</p><p>URL mapping data is stored in <strong>AWS S3 (eu-west-1, Ireland)</strong> with AES-256 encryption at rest and TLS 1.2+ in transit. IntellinQ configurations and plugin settings are stored in <strong>Forge Storage</strong>, managed entirely by Atlassian.</p><h2>Key security facts</h2><table class="tb2"><tr><th>Area</th><th>Summary</th></tr><tr><td>Hosting</td><td>Atlassian Forge (serverless, Atlassian-managed)</td></tr><tr><td>Data storage</td><td>AWS S3 (eu-west-1) + Atlassian Forge Storage</td></tr><tr><td>Encryption at rest</td><td>AES-256 (SSE-S3)</td></tr><tr><td>Encryption in transit</td><td>TLS 1.2+</td></tr><tr><td>Personal data collected</td><td>None — no names, emails, account IDs, or search queries</td></tr><tr><td>Tenant isolation</td><td>Application-layer + Forge platform-layer + S3 IAM</td></tr><tr><td>Security contact</td><td><a href="mailto:privacy@agilva.com">privacy@agilva.com</a></td></tr></table><p style="margin-top:24px"><em>Version 1.0 · Effective date: 08 April 2026</em></p></div><div class="xp" id="p-sec-infra" style="display:none"><h1>Infrastructure Security</h1><p class="ds">How the infrastructure running Link-a-Link is secured.</p><h2>Forge sandbox</h2><p>All resolver code runs inside Atlassian's isolated Forge runtime, which enforces strict security boundaries between tenants and between the app and the wider internet. Agilva Solutions does not operate any servers, VMs, or databases.</p><h2>AWS S3 storage</h2><ul><li><strong>Region:</strong> eu-west-1 (Ireland, European Union)</li><li><strong>Bucket:</strong> <code>link-a-link-storage-eu</code> — private, no public access</li><li><strong>Encryption at rest:</strong> AES-256 server-side encryption (SSE-S3)</li><li><strong>Encryption in transit:</strong> TLS 1.2+</li><li><strong>Backup data:</strong> Also encrypted at rest</li></ul><h2>Lambda processing</h2><p>CSV files are processed by <code>link-a-link-processor</code> (Lambda, eu-west-1) using least-privilege IAM roles with only the minimum S3 permissions required (GetObject, PutObject on the tenant prefix). No broad S3 access is granted.</p><h2>Upload mechanism</h2><p>CSV uploads use <strong>time-limited presigned S3 URLs</strong> with a 15-minute expiry. These URLs grant access only to the specific tenant's prefix — no additional bucket access is possible.</p></div><div class="xp" id="p-sec-access" style="display:none"><h1>Access Control</h1><p class="ds">How access to systems and data is controlled.</p><h2>Tenant isolation</h2><p>Every workspace that installs Link-a-Link receives a completely isolated data environment. Isolation is enforced at three independent layers:</p><ul><li><strong>Application layer:</strong> Every Forge Storage key is namespaced with the workspace's unique <code>tenantId</code>. No query can read across tenant boundaries.</li><li><strong>Platform layer:</strong> Forge enforces runtime-level isolation between app instances for different tenants — they cannot share storage, memory, or context.</li><li><strong>S3 layer:</strong> Object keys are prefixed with <code>tenantId</code> and IAM policies restrict access to the Lambda function with the correct context.</li></ul><h2>Forge Context Token (FCT)</h2><p>Every resolver invocation is validated against Atlassian's FCT mechanism, ensuring the caller is authenticated to the correct workspace before any storage read or write operation takes place.</p><h2>No credentials in code</h2><p>AWS credentials are stored as Forge environment variables (production) and never hardcoded in source code.</p><h2>Admin controls</h2><p>Only Confluence workspace administrators can upload mapping data, configure IntellinQ systems, and initiate data deletion. End users have read-only search access.</p></div><div class="xp" id="p-sec-data" style="display:none"><h1>Data Protection</h1><p class="ds">How we protect the data Link-a-Link handles.</p><h2>No personal data</h2><p>Link-a-Link is deliberately designed to avoid collecting personal data. The plugin <strong>never</strong> collects, stores, or transmits:</p><ul><li>User account IDs, names, or email addresses</li><li>Search queries typed by users</li><li>Confluence page content, titles, or attachments</li><li>Passwords, tokens, or session identifiers</li><li>Browser information, IP addresses, or device fingerprints</li><li>Behavioural analytics of any kind</li></ul><h2>What we do store</h2><p>Only admin-uploaded and admin-configured data:</p><ul><li><strong>URL mapping index</strong> — old DC URLs/PageIDs mapped to new Cloud URLs (no page content, no personal identifiers)</li><li><strong>IntellinQ configurations</strong> — system names, URL prefixes, base URLs</li><li><strong>Aggregate search counters</strong> — integers only, no query strings</li><li><strong>Technical error logs</strong> — error type and message only, max 30 entries, FIFO rotation</li></ul><h2>Admin-initiated deletion</h2><p>Administrators can permanently delete all mapping data at any time from the settings panel. Deletion is immediate, irrecoverable, and audit-logged. There is no backup, soft-delete, or archival copy retained.</p><h2>Support reports</h2><p>The built-in support report feature generates diagnostic JSON containing <strong>only aggregate counts and technical metadata</strong> — never personal data, search queries, or page content.</p></div><div class="xp" id="p-sec-monitoring" style="display:none"><h1>Monitoring & Logging</h1><p class="ds">What we log, what we don't, and how we monitor.</p><h2>What we log</h2><ul><li>Upload timestamps and processing status</li><li>Aggregate search counters (integers only)</li><li>Technical error events (type, message, component name)</li><li>Data deletion events (timestamp and action type only)</li></ul><h2>What we do not log</h2><ul><li>Search queries entered by users</li><li>User account IDs or names</li><li>Credentials, API tokens, or passwords</li><li>Page content or titles</li><li>IP addresses or device information</li></ul><div class="nt nt-i"><div class="nt-l">No sensitive data in logs</div><p style="margin:0">No credentials, API/access tokens, passwords, search queries, or personal information are ever written to any log — whether Forge logs, CloudWatch, or otherwise.</p></div><h2>Log retention</h2><p>Error event logs are retained with a maximum of 30 entries per tenant using FIFO rotation. Audit log entries are retained indefinitely (max 30 per tenant). All logs are purged on app uninstall per Atlassian's Forge platform policies.</p></div><div class="xp" id="p-sec-scanning" style="display:none"><h1>Vulnerability Scanning</h1><p class="ds">How we identify vulnerabilities in our code and dependencies.</p><h2>Software Composition Analysis (SCA)</h2><p>We perform <strong>SCA — dependency and open-source library scans</strong> — to identify known vulnerabilities in our project dependencies. Scan results are reviewed as part of our release process. No release proceeds with known critical or high-severity vulnerabilities in dependencies.</p><h2>Library management</h2><p>We ensure the libraries and frameworks used in Link-a-Link are <strong>free from known vulnerabilities</strong> before including them. Dependencies are regularly reviewed and updated.</p><h2>OWASP Top 10</h2><p>We have reviewed and actively design against the <strong>OWASP Top 10</strong> most common security risks when building our app.</p></div><div class="xp" id="p-sec-bugfix" style="display:none"><h1>Bug Fix Policy</h1><p class="ds">How we handle security bugs when they're found.</p><p>We follow <strong>Atlassian's Marketplace security bug-fix policy</strong>, which defines response timelines based on vulnerability severity.</p><p>Our bug-fix policy details are aligned with:<br><a href="https://developer.atlassian.com/platform/marketplace/security-bugfix-policy/">Atlassian Marketplace Security Bug Fix Policy</a></p><h2>Our commitments</h2><ul><li>Critical vulnerabilities are triaged immediately upon report</li><li>Remediation follows Atlassian's required timelines for each severity level</li><li>Patches are deployed through the Atlassian Forge platform</li><li>Affected customers and Atlassian are notified following the vulnerability notification template</li></ul></div><div class="xp" id="p-sec-reporting" style="display:none"><h1>Reporting a Vulnerability</h1><p class="ds">How to report a security issue in Link-a-Link.</p><h2>How to report</h2><p>For any security concerns, contact us at <a href="mailto:privacy@agilva.com">privacy@agilva.com</a>.</p><h2>What to include</h2><ul><li>A clear description of the vulnerability</li><li>Steps to reproduce (if applicable)</li><li>The potential impact or severity</li><li>Any supporting evidence (screenshots, logs)</li></ul><h2>Our response</h2><ul><li><strong>Acknowledgement:</strong> within 2 business days</li><li><strong>Initial assessment:</strong> within 5 business days</li><li><strong>Status update:</strong> within 10 business days</li><li><strong>Remediation:</strong> according to Atlassian's severity-based timelines</li></ul><div class="nt nt-w"><div class="nt-l">Please do not</div><p style="margin:0">Please do not publicly disclose a vulnerability before we have had a reasonable opportunity to investigate and remediate. We are committed to working with researchers in good faith.</p></div></div><div class="xp" id="p-sec-plan" style="display:none"><h1>Incident Response Plan</h1><p class="ds">What happens when a security incident is detected.</p><p>We maintain a <strong>comprehensive incident response plan</strong> aligned with Atlassian's published guidelines for Marketplace partners:</p><p><a href="https://developer.atlassian.com/platform/marketplace/preparing-for-a-security-incident/">Atlassian — Preparing for a Security Incident</a><br><a href="https://developer.atlassian.com/platform/marketplace/app-security-incident-management-guidelines/">Atlassian — App Security Incident Management Guidelines</a></p><h2>Incident response steps</h2><ol><li><strong>Detection & containment</strong> — the affected component is isolated to prevent further impact</li><li><strong>Assessment</strong> — scope, severity, root cause, and potentially affected tenants are identified</li><li><strong>Notification</strong> — Atlassian and affected customers are notified following Atlassian's Security Incident Notification guide</li><li><strong>Remediation</strong> — the root cause is fixed and a patch is deployed through the Forge platform</li><li><strong>Post-incident review</strong> — lessons learned are documented and controls are updated accordingly</li></ol><div class="nt nt-i"><div class="nt-l">Multi-tenant consideration</div><p style="margin:0">Because Link-a-Link enforces strict tenant isolation at three independent layers (application, platform, and S3), a security incident affecting one workspace's data cannot propagate to other workspaces.</p></div></div><div class="xp" id="p-sec-notification" style="display:none"><h1>Customer Notification</h1><p class="ds">How we communicate security incidents to affected customers.</p><p>In the event of a critical vulnerability or security incident affecting Link-a-Link, we will:</p><ol><li><strong>Notify Atlassian</strong> — immediately, following Atlassian's vulnerability notification requirements</li><li><strong>Notify affected customers</strong> — via the Atlassian Marketplace listing, in-app notification where possible, and email to registered admin contacts</li><li><strong>Publish a post-incident report</strong> — describing the incident, its impact, and the remediation steps taken</li></ol><p>Our notification process follows Atlassian's published template:<br><a href="https://developer.atlassian.com/platform/marketplace/app-vulnerability-notification-template/">Atlassian — App Vulnerability Notification Template</a></p><h2>Communication channels</h2><ul><li>Atlassian Marketplace listing (public notice)</li><li>Email to registered workspace admin contacts (where available)</li><li>Direct contact at <a href="mailto:privacy@agilva.com">privacy@agilva.com</a></li></ul></div><div class="xp" id="p-sec-dev" style="display:none"><h1>Secure Development</h1><p class="ds">How we build and release Link-a-Link safely.</p><h2>Source control security</h2><ul><li><strong>Multi-Factor Authentication (MFA)</strong> required for all access to source code management</li><li><strong>Pull requests required</strong> to push any change to production code</li><li><strong>Peer approval required</strong> on every pull request before merge</li></ul><h2>Secure coding practices</h2><ul><li><strong>OWASP Top 10</strong> reviewed and actively designed against</li><li><strong>Security testing</strong> integrated into our development process</li><li>Libraries and frameworks verified <strong>free from known vulnerabilities</strong> before use</li><li><strong>API keys and secrets</strong> managed and rotated periodically</li><li><strong>No credentials in code</strong> — all secrets stored as Forge environment variables</li></ul><h2>Release process</h2><ul><li>SCA dependency scans run before every release</li><li>Pull request review includes security review checklist</li><li>Deployments are made through the Atlassian Forge platform</li></ul></div><div class="xp" id="p-sec-workstation" style="display:none"><h1>Workstation Security</h1><p class="ds">How developer devices are secured.</p><ul><li><strong>Anti-Virus / Endpoint protection</strong> deployed on all development workstations</li><li><strong>Full disk encryption (FDE)</strong> enabled on all development workstations</li><li><strong>Patch management</strong> process in place to keep operating systems and software up to date</li><li><strong>Multi-Factor Authentication (MFA)</strong> required for all accounts accessing company systems</li><li><strong>Strong password policy</strong> enforced across all company accounts</li></ul></div><div class="xp" id="p-sec-contact" style="display:none"><h1>Security Contact</h1><p class="ds">How to reach us about security matters.</p><table class="tb2"><tr><td><strong>Security contact</strong></td><td><a href="mailto:privacy@agilva.com">privacy@agilva.com</a></td></tr><tr><td><strong>Ecosystem profile</strong></td><td>Registered at ecosystem.atlassian.net</td></tr><tr><td><strong>Organisation</strong></td><td>Agilva Solutions</td></tr><tr><td><strong>Website</strong></td><td><a href="https://link-a-link.in">https://link-a-link.in</a></td></tr></table><p style="margin-top:20px"><em>This Partner Security Policy is published in accordance with Atlassian Marketplace requirements. Version 1.0 · Effective date: 08 April 2026</em></p></div></main></div>
+<button class="dm-mb" onclick="toggleSb()" aria-label="Menu"><svg fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg></button><footer class="ft"><div class="ft-w">
+<div class="ft-top"><div>
 <a href="../home/" class="ft-l"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAo4AAAFiCAYAAAB4YFmEAAATyUlEQVR42u3d23bjNhIFUAOL///LmKdJupO4TUkkUZe9nxNbBKpQh5SsHmutLwCgtDPDflgmfnJYAgBoFxJf+f8ESgRHAGgeFN/5+UKk4AgACItCJIIjAAiM974WAVJwBAAERgESwREABEYBkjdMSwAAQuPFr9t3/QmOAIDQ2Ooa+AdvVQOAsHX39Xj7ughPHAFAaHRtCI4AIFi5RgRHABCoXCuCIwAIUq4ZwREAEKCER8ERABCcrIHgCAAITCA4AoDQaD0QHAEA4RHBEQAEJGuD4AgAghEIjgAAwrXgCAAIRNaquMMSAEAbQ2BDcASAmHYHsvHmf7c2r9lQOoIjABAnLJ75GZ5E8hufcQSyMtBQo/eExn/+vKG/+T9PHB1mUKmWhzWgqfHAz1drCI6GCRiaehr1/9LvUYuCIwYKGJh6Gj1w+neuh/rAH8kIjhgqIDTqZ5L3gLeuBUcMFzAs9TP6AARHgwUMSz0N1/fjeqBvhGTBEYMFygdG/UyHfvCWteCI4QKGpJ5GP4DgaLCAIamn4fo+1QOCI4YLCIz6GUBwNGBAaNTP6I08M9Rb9IKjsAikGox6Gv7cu3pEcMRwgfahUU8DCI6GCwiMehpAcDRcQGjU0+gVEBwNFzAI9TS0nbkCtOAoMILQqKeBl/tViBQchUYQGvUzIEQKjgIjIDQCQqTgKDACSUKjnibzPBKIhEjBUWgEoVE/Azf3vgApOBowIDTqaeDlc0CIFBwNGBAa9TPw0tkgQL5hWoK/isiQAaERMgQer83sFxwVOwiNehoQIGM7mhcKAgl6Wr+g7qzBr9ehbwRHjV5w7zQ2elofdKw5X8tjzgiOhgsf7qXmVgtCIurNegiQgqPiRoikbU+rZTX3p9ehPgTIPQfTWkuzY+iip9Us+erNd6TqU8FRYaPJadTT6lOtZa2h7rO1be9WD45CIwa0nlaLVK+1YW30s+CoqNHk1OlrdafOqtSY+dq8vysGR0WNRtfT6oyO82NYH/0uOCpqNLpBrqZQZztr0GzV/3+ZGh8DQ+3o6csGhtCozipdk/NRPf37oCvyxFFh427R4atmMDeuqVEz1dlQOjgqcDS7ga5OMDdwTjzg0PzwbV0JBnpaYFRf8GnNlTozDgcACJB6WmBUX2CWnDEdAKDerLHQqL4I0mdDHQbfpISfcXQAIDw4TO05Zkaf89XXJQmODgA0PUIj5gUv99pqeM2hTIcAqEXr+K8DXWhUW8QMUKNIj6at0cMCa1D78NFaCBj1QiNqi1wzbSWu1XRnToa3qh0CeYbesu4krRV7qK7I33f+XXvB0SFQYMgte4LQiLPm27pzw60eUp1FkYOj0Fh3sC17ZbjbL5oHxs7zbqiPvGdS1OAoNPYZaMveGfD2iAbnxyh0LRl7b1kjwVEzGQL2097aGzVV6SyoPvuGusl/TkUMjp1CowFWuw7sr9BI3/NhFL627L0nPBYKjh7VU60u7HWc/bMX6ilLrXn3RS2FXb9IwdEjeqrWyLBn9oAWZ4Cvl8nZd8s65guO/sqW6vUy7JO1p2zfj6bXXannhMeTji80Tt61zXSgdvuXZoRGhMae513Wnuv+vZrnFyrAE8dqm2RQqSE1EmNP9KJaqlhf1sMatw6OPgBM13oa9sH6YoAXWBtnWbP13hkcq4RGA0qzqx2hkR69PKxRux4THv/BZxw1TuW98VkVfYmBXb22xkPr1rW3RsBaXDv3Y9cTR18xgFqrV0/LOiI0llhLvaQuQwVHX+aMhq9XV0IjhjPqs0F9TjXg8LB/DiJ7i174z7pSWzhvNgfHrF9k6vCo0/BR9zJzeFyb9xShUV3RtT4e75tZ+eIcHiTb14w9IjQiNGKONOofb1V/XxAOD3ssPDq0UVcgPG4Ijr6YGftdr1+EXCrVkbMfdRMkOAqN2HehTJ8iNOJMKtBP3qr+e9MdHGogWg1EDo9r4z4hNDr7MUM29dXMfgEGEepBaAT1hLp6xrTBELouvGWNmw9nP4Tpr5n1hTs4EB5bvRb9aqiB+RGgz2a2F2wIITzaB4RG9YRza49pM0G9CK/oZyhXb7ec2TPLC3VooG5aBjc968ZDLeEMC9R3s9HGOTQQHnP9Xj0rNKolzI9grg6Oy4ah+csPYX2LWoI8dXjpzPAF4GAICapUrR+hES52ZXD0tJFO4bHkh571LUIjlKzJy3px2iAwlJsGVADhcVNwXDYGBwDWlCBzQR3hnLvJtCGQut5W0p+td1FHkHBmzAgvwoGBQQXoRdRqfNMmQOr6u+v3etqIPYWaPfLR+T53/nIHFA4BQP+hbvPwPY6Q9xAY1gx7q4bgDW8/+Js7fqkDA8Oy5oECzmio3SPTYgN6mMT7rIbQI+956yHBfPKXOSxwCKh/0AeQl884gqG266bQ0NcPwN4eefnMnxYX1Cok7Ae9BRu8Exx3v03tsMDwdQ0AzvdrvJTrpgUFdRvkphD9YBZA8Pp+NTgaLGDQgV6CpjI9cXRYYODdxx/FoBegb4+cngH+qhocJpClltU/bPZKcNz5NrXDAsHP9fMsH02CXuflqZ6fFg7UNGwKj0PfQC5ng6M7T6gbOPU3f6oJ9QH1zv3bg6MFA7XtmvuFxih1oXYgSP/74xgQpGB3mNQLkKQ/zgTHZaFAIEA9mAWAJ45gKLpOIoRKNQIJej1qcHSAgJ4gXjBc6h56z4CfgqO3scBwRGjUC8Cp4OjggLp1v/Q0iUMmmBMb+txnHAEEwYjD0Q0HBBQtODoocDcJ8UOjP5SBpnNiJroLBQcF5A+dQGKRnjgajlCvD/S14AcUOiN8xhGELRA+wYw4ZQY5DAxKMPCx/0BwhyWANneUbgi5ow6WvYbS58UQHEFAAOER8hq7zvgZ5OKBa4f4CvI6cDMBFDIdLCAwCipCo70G3g2OT/K0EWoGxkyvD+ERONnXvo4HBEavV6AD8tny8E1wBEHAa1cr9hc45djY8N6mhr5DeTkHAPLxxBGERtekZuwr5PT4zbfgCAKAa8O+Aqf6WXAEA9g1WlOAU3YFR59rAsNf0Km/lvYUCgdHDQ6Gv2sG4FRwBAQo12797Cfk8ui7uIIjGPzWAPsJhA2OPt8IBqy1sGZAwvPFE0cw9K2JtfL6gFOmhgYA4JXgCOzl5s3adFgjewn3eOxjgLPqhYGhb42sjdcL5A6OAAAIjsAbPH2xVh3XxF5CUoclAMPz6+ePkRj06gdAcISmxgf//c7Asr58VrpS8LWXkKxv54NDwAEB+8PXuKAXh35uWz+uA5rzGUfo4Y6wtytAdg8bwhYgOAK3hsbMPx9BGAhyFguOUHtQjgd/jwApZLkuKE5wBHefGX+noAEgOEJ5/hgNYdnNAAiOQBij+e8XqlwnIDgCwquQAdAhOHoCAf16Td8LyK4XBEfAQARAcAQyG16Tmw3XDQiOAP0Chn8hBxAcgVt4sgeA4AgItQ152mYdQHAEQFgCBEcAEKRBcASCDz9vBasT6wIIjgAACI4A/M5TNesDgiMAQhEgOAKAgA2CI3Axf8CCMGS9IH1vCI7gsMDeAQiOAAjcgOAIGPLWBUBwBDgt62dHhUZrCCnPXMERDFFQ98ApU3MDet+aAEQKjsD9b6sKJAjiwK0OSwAY6KVuIHbthe8qhQbnrSeO4PAQwAAQHEF4FGABEBwhq6eeku0MbkIjQOHg6O0eIFtodG71vCECAgTHagMF+Lvnlh5XB5YA9PhVN4jeqobnPf10ZhX5HQBsJjiCO9JPf+7TodHbogCCI7Sy67v8VsCfBUASvgAc+lkfBNjdYdHTRgDBEVoaAYKYp4YANR4EPGI+fBdvSAGfBG0ANp6/PuMIwhAAnCI4gvBojepa9gb0t+AICI0AtAiOPucIwhEAyYOjwQXCozUB4Ntz2FvVIChZC4Bctr17KziCwGQNDBaA0MHRgQYIjfbKfIBkPTId2CA8uW4MRuDMmeytahCiXC8Ap+wMju4o4VyYGk2uE+erGQHB+8ITR0BoxFAE3g6ODnFAaCTC3gmSkCA4uruEWCr2SZe34AGyzoIRMTgC/QiMbjS63zhBWhGCo0MB+gRGoREgcVaangiAw0Jg5I09fbLWPWCAID1+WBsgUbig/o0GELivp0UBh8UNgVFoRD9AQfOHwx/glbDo3EB4hMI1fwRbHEMH4g9Ifdq7Zuw/1H8QkCI4AoIgQu+Z/1bNoi82+ekzjsMigcMCAM4ERwDcbLhe6FHjPz4wnFf8ECDtYaG/2V0vK0mvAF8xnzg6DACcmaCnBUcHIQSqe08b0TPASzNhXvnDAOg9VIRHqF3P0+JBy3p3M6huKr1+8wL9LDgCAPCA0w8T5h0/1N00hK5zTxvVTcWaMS/Qzw/wxBEcFlCl9vUTeuHmG8N55w93EEA4njYaNNVrxsyAG3niCAYcAObAbcHRU0fIWdOeNqqdLtdgZqAPbpoL0wIDUPBmw8xAfd7g3eDoyQXkOjD0rNrpeA3CI1w8F7J9xtEhgKEJbjb0HGpyk0+C47DgIADg7EtwDeYG+viiueCvqsHwQu242QAz4JHg6KkjxK5ZAQDMDdRfmOBoE0Cton6sJeSpu48eKMzdL8AhADEPB9RN0Zo0N2BzcDSgwJBC/QiPEL/WPu6/aVOgZG26mVM/6sbsQI1d7srg6C1rEBohU42aHXSqrUv6btokUIuooQ1hTnhE/yY0ix0EDgC6HxieNqqhTIRH9G+yXpsFDwIHAF0JjagdswM1dCv/cgw4NOhdQ7tD4wi2/vqYauf/pT02ix4EGp9uNeeJkRrKbNgL9G6O3pqFDwKNj9CIGspTO8IjGfu2XZ3MBpsKagxyEB5x9gfvp9ngEND4VK4tTxvVUbXaER7Rs4HNJoeAxkdoRB3lETE82isy9extPTRtNqQcIEKjM0n9mCO4eXi8v2eFi9D0qB/UUrnQOOwd9jye2fAQUABkrxtPi9RSF5HDo33Ury17ZjY9BDQ8QiOCmNdsluDmIHhw1PCoE6FRPamfauHRPNGnbfpkNj8ANDxuLlBPhqL9JXsmeKw/pgNAw5Pi8PC0UWhUPznCo3miR0ubDgBFQ/g6EBrVlPrJdT0CpAcFZXtiOgA0O0IjbkgNSvsvMOqFU79wraW5DOwr92Q0ulY1SPS6GtZYP1M2zG+pqUMN/bG4hma65Of4Og1DxnBSQ3dd40pWE3rbWZ+76YI8cTTA+6y37/I08A0odSQU6HO1kbR+IgVHw9xQU2eGif5SRwIkAmPgmokWHA31fus6rIEBYlCpI4HB3tn/HDUSMTga8D2baKgpDCt1JDzYR4FRcKxcBP7oI/6aqiO69Jk6qhkk7KuwGKoWIgdHQ9/ddoc1MBQMLbXkLLTHwmKavY8eHAUAh6SawbmklpyLvfe8+1fphNrrDMExW9EMa7RtPdUJQiNdw8ewV/ZWcBQKNNm59VwOAZr2mVpyVlapDWExyT5mCo4CgmYbBa7boBc41JK97FwzAmLyHs8WHLMW3bAWGPSChlqyrw3OKetavMczBsfshTmsgUMA54xasseQscdn4kXNeniuCw4rh51DAIECvYmaFBwbNf27AdJAU6PEvrFTT/l61Lqiv8++yKRvVVcNU6PJdToAcIaoKXUACft7WvBwh9Z3TzwcaOoRoZH719lao78bBMeKDf9rgBQaHQDc22NqCmuOWjvzgou8Vf1fAwE0P9nPB3WlXjA3Qpk2A9RbowAgNGIfUFcfOIpvijtFND/+xSmu2hMzhfY9fmh2MNwFRnWFmYIeFxx/3yiNfl+RL2uCwKiuBEio3+NV/zhGwNlb3Mu6oL/VltqDej3eLThq8mcLe1kb9LLaUo+YrYUupmlw1ODPFrUnQagp9aU2MV8FR02uqEuvs6GuV9UXahb9LThq7k2FvawLelN9qWPMVsFRcyvsKmtsqOtB9YX6Ro8Ljpo7UGEva4KbNdQ+elxw1NQKO9v6GuZ6So2hL9DjJx32+8dC0NQaHYNQnfFUjegfPS44CpAK/JvXsnNNHc506Dd1rl6wX4KjAKnIQa8JjcXYLz2ewrT/bxWMEKb5IGpNLyEEzK27eOL4efE4oAFPGUGPt+CJ4zXFNBS8ZkT/C40gNFbnieM9heUAB8NEaAQ9LjjyUrE5zMEwERpBjwuOCJBgmAiNoM8FR+4txKUJwDARGkGPC45ED5GR18RaYJgIjKDHBUdOFKxBAIaJ0Ah6XHDkdAEbCGCYCI0gMAqOAIaJ0Ah6XHAEQxHDRH+AHhccKRTKNA4IjKDHERwBCg4SoREERsERwCARGkFYFBzBkMQg0QugzwVHioQzDYYhIjSCPkdwLNQMhgf0GyL6HgRFwZGQw2kEfE3QdZCofxAWBUcwNDFE1D8IioIjNYaVBsUQERhBjyM4FmmmuwdLhPBoeNJtgKh59DiCI6mH2Nj4uzE4uvUb6HMER4RHA9SgQM2jv2lUGGs515oPm+GaAIAzpiUQUouFRgDgJt6q5tdgN276uQBAAZ44xrTzD1dWoJ+Tae0AoDxPHPku+L0axDxdBADBkU2i/NvVK9maAQA38Va1IGStAADBEQAAwbETT9KsEQAIjiA0AoDgiHAEAAiOCI/WBAAERwQlawEACI4CkzUAAARHhEYAQHDk2/A0ml43ACA4Iki5VgAQHBGoXCMACI4IVq4NAARHBCzXBAAIjoXD4yh0LQCA4IjQ1SL8AkAphyUoHx6XsAsACI5UCJACIwAIjgiQAiMACI4IkAIjAAiOtAuQXzcHSUERAARHBElBEQA6+R//vLynUTBtGgAAAABJRU5ErkJggg==" alt=""><b>Link-a-Link</b></a>
 <p class="ft-tag">Links. Mapped. Managed.</p>
-</div>
-<div class="ft-cols">
+</div><div class="ft-cols">
 <div class="ft-col"><h4>Product</h4><a href="../home/#features">Features</a><a href="../home/#how">How it works</a></div>
 <div class="ft-col"><h4>Resources</h4><a href="../docs/">Documentation</a><a href="../customer-support/">Support</a></div>
 <div class="ft-col"><h4>Trust</h4><a href="../trust-centre/">Privacy Policy</a><a href="../partner-security-policy/">Security Policy</a><a href="../end-user-agreement/">End User Agreement</a></div>
 <div class="ft-col"><h4>Company</h4><a href="../about/">About</a><a href="#">Marketplace ↗</a></div>
-</div>
-</div>
-<div class="ft-bot">
-<div class="ft-c">© 2026 Link-a-Link by <em>Agilva Solutions</em></div>
-<div class="ft-c">Built on Atlassian Forge</div>
-</div>
+</div></div>
+<div class="ft-bot"><div class="ft-c">© 2026 Link-a-Link by <em>Agilva Solutions</em></div><div class="ft-c">Built on Atlassian Forge</div></div>
 </div></footer><script>
 (function(){var t=localStorage.getItem("llTheme")||"dark";document.documentElement.setAttribute("data-theme",t)})();
 function toggleTheme(){var c=document.documentElement.getAttribute("data-theme");var n=c==="dark"?"light":"dark";document.documentElement.setAttribute("data-theme",n);localStorage.setItem("llTheme",n)}
 function toggleMenu(){document.getElementById("dr").classList.toggle("on");document.getElementById("bk").classList.toggle("on");document.body.style.overflow=document.getElementById("dr").classList.contains("on")?"hidden":""}
-function sp(el){document.querySelectorAll(".dt-a").forEach(x=>x.classList.remove("on"));el.classList.add("on");document.querySelectorAll(".xp").forEach(x=>x.style.display="none");var t=document.getElementById("p-"+el.dataset.p);if(t){t.style.display="block";window.scrollTo({top:0,behavior:"smooth"})}var sb=document.querySelector(".dt");if(sb&&sb.classList.contains("on"))sb.classList.remove("on")}
+function sp(el){document.querySelectorAll(".dt-a").forEach(function(x){x.classList.remove("on")});el.classList.add("on");document.querySelectorAll(".xp").forEach(function(x){x.style.display="none"});var t=document.getElementById("p-"+el.dataset.p);if(t){t.style.display="block";window.scrollTo({top:0,behavior:"smooth"})}var sb=document.querySelector(".dt");if(sb&&sb.classList.contains("on"))sb.classList.remove("on")}
 function toggleSb(){document.querySelector(".dt").classList.toggle("on")}
 </script></body></html>
